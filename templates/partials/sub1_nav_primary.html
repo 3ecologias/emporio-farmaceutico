@@ -1,0 +1,17 @@
+{% load currency_filters %}
+{% load category_tags %}
+{% load i18n %}
+
+{% category_tree depth=4 as tree_categories %}
+{% if tree_categories %}
+  {% for category, info in tree_categories %}
+    {% if category.get_ancestors %}
+      {% if category.get_descendants %}
+        <h5>{{category.name}}</h5>
+        <ul>
+          {% include 'partials/sub2_nav_primary.html' %}
+        </ul>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}

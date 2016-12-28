@@ -1,0 +1,14 @@
+{% load currency_filters %}
+{% load category_tags %}
+{% load i18n %}
+
+{% category_tree depth=4 as tree_categories %}
+{% if tree_categories %}
+  {% for category, info in tree_categories %}
+    {% if category.get_ancestors %}
+      {% if not category.get_descendants %}
+          <li><a href="{{ category.get_absolute_url }}">{{category.name}}</a></li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}

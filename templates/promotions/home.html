@@ -1,0 +1,44 @@
+{% extends "oscar/promotions/home.html" %}
+{% load staticfiles %}}
+
+{% block extrastyles %}
+
+<link href="{% static 'recifegrafica/css/font-awesome.css' %}" rel="stylesheet">
+<link href="{% static 'recifegrafica/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'recifegrafica/css/animate.min.css' %}" rel="stylesheet">
+<link href="{% static 'recifegrafica/css/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'recifegrafica/css/owl.theme.css' %}" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+<link href="{% static 'recifegrafica/css/style.blue.css' %}" rel="stylesheet" id="theme-stylesheet">
+
+
+{% endblock %}
+
+{% block navigation %}
+    {% include "partials/nav_primary.html" %}
+{% endblock %}
+
+{% block header %}
+<h1>Welcome to the shop!</h1>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h2>Please, buy something...</h2>
+    <div class="row">
+        {% for category in categories %}
+        <div class="col-xs-6 col-md-3">
+            <div class="thumbnail">
+                {% if category.image %}
+                    <a href="{{ category.get_absolute_url }}" class="thumbnail"><img src="{{ category.image.url }}" alt="{{ category.full_name }}"></a>
+                {% endif %}
+                <div class="caption">
+                    <a class="btn btn-default" href="{{ category.get_absolute_url }}">{{ category.full_name }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}

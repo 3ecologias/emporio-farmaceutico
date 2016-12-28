@@ -1,0 +1,4 @@
+django-oscar==1.1.1
+
+# used to populate countries
+pycountry==1.10
