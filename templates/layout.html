@@ -1,0 +1,70 @@
+{% extends "oscar/layout.html" %}
+{% load staticfiles %}
+{% load promotion_tags %}
+
+{% block extrastyles %}
+
+<link href="{% static 'recifegrafica/css/font-awesome.css' %}" rel="stylesheet">
+<link href="{% static 'recifegrafica/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'recifegrafica/css/animate.min.css' %}" rel="stylesheet">
+<link href="{% static 'recifegrafica/css/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'recifegrafica/css/owl.theme.css' %}" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+<link href="{% static 'recifegrafica/css/style.blue.css' %}" rel="stylesheet" id="theme-stylesheet">
+
+
+{% endblock %}
+
+{% block layout %}
+    {# Top-horizontal bar with account, notifictions, dashboard links #}
+    {% include "partials/nav_accounts.html" %}
+
+    {# Site logo/title, mini-basket, browse dropdown and searchbox #}
+    {% block navigation %}
+        {% include "partials/nav_primary.html" %}
+    {% endblock %}
+
+    {# Main content of page - other layout templates may override this block #}
+    {% block content_wrapper %}
+        <div class="container-fluid page">
+            <div class="page_inner">
+                {% block breadcrumbs %}{% endblock %}
+                {% block header %}
+                    <div class="page-header action">
+                        <h1>{% block headertext %}{% endblock %}</h1>
+                    </div>
+                {% endblock %}
+                {% include "partials/alert_messages.html" %}
+                {% block subnavigation %}{% endblock %}
+                <div class="content">
+                    {% block subheader %}{% endblock subheader %}
+
+                    {# Render promotions #}
+                    <div id="promotions">
+                        {% for promotion in promotions_page %}
+                            {% render_promotion promotion %}
+                        {% endfor %}
+                    </div>
+
+                    {# Div exists for AJAX updates to entire content section #}
+                    <div id="content_inner">{% block content %}{% endblock %}</div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% include "partials/footer.html" %}
+{% endblock %}
+
+{% block extrascripts %}
+    <script src="{% static 'recifegrafica/js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'recifegrafica/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'recifegrafica/js/jquery.cookie.js' %}"></script>
+    <script src="{% static 'recifegrafica/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'recifegrafica/js/modernizr.js' %}"></script>
+    <script src="{% static 'recifegrafica/js/bootstrap-hover-dropdown.js' %}"></script>
+    <script src="{% static 'recifegrafica/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'recifegrafica/js/front.js' %}"></script>
+
+
+{% endblock %}
