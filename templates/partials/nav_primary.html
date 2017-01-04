@@ -78,7 +78,7 @@
         <div class="collapse clearfix" id="search">
           <form class="navbar-form" role="search" method="get" action="{% url 'search:search' %}">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="{% trans 'Search' %}">
+                <input type="text" class="form-control" id="id_q" name="q" placeholder="{% trans 'Search' %}">
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-primary" value="Search"><i class="fa fa-search"></i></button>
                 </span>
@@ -87,4 +87,3 @@
         </div>
     </div>
 </div>
-    

@@ -1,4 +1,4 @@
-{% extends "layout_2_col.html" %}
+{% extends "layout.html" %}
 {% load staticfiles %}
 
 {% block navigation %}
@@ -8,12 +8,7 @@
 {% block header %}
 {% endblock %}
 
-{% block content_wrapper %}
-<div id="all">
-    <div id="content">
-        {% include "sliders/main_slider.html" %}
-        {% include "hotest/best_sellers.html" %}
-    </div>
-</div>
-
+{% block content %}
+    {% include "sliders/main_slider.html" %}
+    {% include "hotest/best_sellers.html" %}
 {% endblock %}
