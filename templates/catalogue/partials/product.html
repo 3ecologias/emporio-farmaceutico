@@ -7,32 +7,32 @@
 {% load staticfiles %}
 
 {% block product %}
-
-  <div class="item">
-      <div class="product">
+<div class="col-md-3 col-sm-4">
+  <div class="product">
         {% block product_image %}
             <div class="flip-container">
                 <div class="flipper">
                     <div class="front">
                         {% with image=product.primary_image %}
-                            {% thumbnail image.original "x155" upscale=False as thumb %}
-                                <a href="{{ product.get_absolute_url }}">
-                                    <img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="img-responsive">
-                                </a>
-                            {% endthumbnail %}
+                            <a href="{{ product.get_absolute_url }}">
+                                <img src="{{ image.original.url }}" alt="{{ product.get_title }}" class="img-responsive">
+                            </a>
                         {% endwith %}
                     </div>
                     <div class="back">
                         {% with image=product.primary_image %}
-                            {% thumbnail image.original "x155" upscale=False as thumb %}
-                                <a href="{{ product.get_absolute_url }}">
-                                    <img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="img-responsive">
-                                </a>
-                            {% endthumbnail %}
+                            <a href="{{ product.get_absolute_url }}">
+                                <img src="{{ image.original.url }}" alt="{{ product.get_title }}" class="img-responsive">
+                            </a>
                         {% endwith %}
                     </div>
                 </div>
             </div>
+            {% with image=product.primary_image %}
+                <a href="{{ product.get_absolute_url }}" class="invisible">
+                    <img src="{{ image.original.url }}" alt="{{ product.get_title }}" class="img-responsive">
+                </a>
+            {% endwith %}
         {% endblock %}
 
         {% block product_review %}
@@ -46,20 +46,18 @@
                 </p>
             {% endiffeature %}
         {% endblock %}
-      <div class="text">
-        {% block product_title %}
-            <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}</a></h3>
-        {% endblock %}
-      </div>
+        <div class="text">
+            {% block product_title %}
+                <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{     product.get_title|truncatewords:4 }}</a></h3>
+            {% endblock %}
 
-        {% block product_price %}
-            <div class="product_price">
+            {% block product_price %}
                 {% include "catalogue/partials/stock_record.html" %}
                 {% if not product.is_parent %}
                     {% include "catalogue/partials/add_to_basket_form_compact.html" %}
                 {% endif %}
-            </div>
-        {% endblock %}
-      </div>
+            {% endblock %}
+        </div>
+    </div>    
   </div>
 {% endblock %}

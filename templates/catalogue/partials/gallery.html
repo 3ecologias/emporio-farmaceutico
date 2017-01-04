@@ -1,0 +1,30 @@
+{% load thumbnail %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% with all_images=product.images.all %}
+    {# use length rather then count as the images get queried anyways #}
+
+    {% if all_images|length > 1 %}
+        <div class="col-sm-6">
+            <div id="mainImage">
+            	{% with image=product.primary_image %}
+            		<img src="{{ image.original.url }}" class="img-responsive" alt="{{ product.get_title }}" />
+            	{% endwith %}
+            </div>
+        </div>
+    {% else %}
+
+        {# Only one image to show #}
+        
+	        <div class="col-sm-6">
+	            <div id="mainImage">
+	            	{% with image=product.primary_image %}
+	                    {% thumbnail image.original as thumb %}
+	                    	<img src="{{ thumb.url }}" class="img-responsive" alt="{{ product.get_title }}" />
+	                    {% endthumbnail %}
+	            	{% endwith %}
+	            </div>
+	        </div>
+    {% endif %}
+{% endwith %}	

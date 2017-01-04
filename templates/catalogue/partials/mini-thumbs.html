@@ -1,0 +1,12 @@
+{% with all_images=product.images.all %}
+
+	<div class="row" id="thumbs">
+	     {% for image in all_images %}
+			<div class="col-xs-4">
+	           		<a href="{{ image.original.url }}" class="thumb">
+	                	<img src="{{ image.original.url }}" alt="{{ product.get_title }}" class="img-responsive" />
+	            	</a>
+	        </div>
+	    {% endfor %}
+	</div>	
+{% endwith %}	

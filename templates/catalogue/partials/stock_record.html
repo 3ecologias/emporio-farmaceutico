@@ -1,5 +1,3 @@
-{% extends "oscar/catalogue/partials/stock_record.html" %}
-
 {% load currency_filters %}
 {% load i18n %}
 {% load purchase_info_tags %}
@@ -8,16 +6,16 @@
 
 {% if session.price.exists %}
     {% if session.price.excl_tax == 0 %}
-        <p class="price_color price">{% trans "Free" %}</p>
+        <p class="price">{% trans "Free" %}</p>
     {% elif session.price.is_tax_known %}
-        <p class="price_color price">{{ session.price.incl_tax|currency:session.price.currency }}</p>
+        <p class="price">{{ session.price.incl_tax|currency:session.price.currency }}</p>
     {% else %}
-        <p class="price_color price">{{ session.price.excl_tax|currency:session.price.currency }}</p>
+        <p class="price">{{ session.price.excl_tax|currency:session.price.currency }}</p>
     {% endif %}
 {% else %}
-    <p class="price_color price">&nbsp;</p>
+    <p class="price">&nbsp;</p>
 {% endif %}
-<p class="{{ session.availability.code }} availability">
+<p class="price {{ session.availability.code }} availability">
     <i class="icon-{% if session.availability.is_available_to_buy %}ok{% else %}remove{% endif %}"></i>
     {% if verbose %}
         {{ session.availability.message }}
