@@ -57,7 +57,7 @@
 									{% endthumbnail %}
 									{% endwith %}
 								</td>
-								<td> 
+								<td>
 									<a href="{{ product.get_absolute_url }}">{{ line.description }}</a>
 									<p class="availability {{ session.availability.code }}">{{ session.availability.message }}</p>
 								</td>
@@ -110,13 +110,13 @@
 					<a href="{% url 'checkout:index' %}" class="btn btn-primary">{% trans "Proceed to checkout" %} <i class="fa fa-chevron-right"></i></a>
 				</div>
 				<div class="pull-left">
-					<a href="/" class="btn btn-default"><i class="fa fa-chevron-left"></i>{% trans "Return to main page" %}</a>
+					<a href="/" class="btn btn-default"><i class="fa fa-chevron-left"></i>Voltar </a>
 				</div>
 			</div>
 			{% endblock formactions %}
 		</div>
 	</div>
-		
+
 	{% endblock basket_form_main %}
 
 	<div class="col-md-3">
@@ -134,15 +134,15 @@
 		{% if voucher_form %}
 		<div class="box">
 			<div class="box-header">
-				<h2>{% trans "Voucher/promo code" %}</h2>
+				<h2>Código promocional</h2>
 			</div>
-			<p class="text-muted">{% trans "If you have a coupon code, please enter it in the box below." %}</p>
+			<p class="text-muted">Insira o seu cupom</p>
 			<form id="voucher_form" action="{% url 'basket:vouchers-add' %}" method="post">
 				{% csrf_token %}
 				<div class="input-group">
 					<input type="text" class="form-control">
 					<span class="input-group-btn">
-						<button type="submit" class="btn btn-info" data-loading-text="{% trans 'Adding...' %}"><i class="fa fa-gift"></i></button> 
+						<button type="submit" class="btn btn-info" data-loading-text="{% trans 'Adding...' %}"><i class="fa fa-gift"></i></button>
 					</span>
 				</div>
 			</form>

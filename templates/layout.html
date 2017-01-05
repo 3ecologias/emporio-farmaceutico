@@ -7,8 +7,8 @@
 <link href="{% static 'recifegrafica/css/font-awesome.css' %}" rel="stylesheet">
 <link href="{% static 'recifegrafica/css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'recifegrafica/css/animate.min.css' %}" rel="stylesheet">
-<link href="{% static 'recifegrafica/css/owl.carousel.css' %}" rel="stylesheet">
-<link href="{% static 'recifegrafica/css/owl.theme.css' %}" rel="stylesheet">
+<!-- <link href="{% static 'recifegrafica/css/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'recifegrafica/css/owl.theme.css' %}" rel="stylesheet"> -->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
 <link href="{% static 'recifegrafica/css/style.blue.css' %}" rel="stylesheet" id="theme-stylesheet">
 
@@ -17,7 +17,7 @@
 
 {% block layout %}
     {# Top-horizontal bar with account, notifictions, dashboard links #}
-    {% include "partials/nav_accounts.html" %}
+    <!-- {% include "partials/nav_accounts.html" %} -->
 
     {# Site logo/title, mini-basket, browse dropdown and searchbox #}
     {% block navigation %}
@@ -59,14 +59,19 @@
 {% endblock %}
 
 {% block extrascripts %}
-    <script src="{% static 'recifegrafica/js/jquery-1.11.0.min.js' %}"></script>
+    <!-- <script src="{% static 'recifegrafica/js/jquery-1.11.0.min.js' %}"></script> -->
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
     <script src="{% static 'recifegrafica/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'recifegrafica/js/carousel-swipe.js' %}"></script>
     <script src="{% static 'recifegrafica/js/jquery.cookie.js' %}"></script>
     <script src="{% static 'recifegrafica/js/waypoints.min.js' %}"></script>
     <script src="{% static 'recifegrafica/js/modernizr.js' %}"></script>
+    <script src="{% static 'recifegrafica/js/bootstrap-dropdown.js' %}"></script>
     <script src="{% static 'recifegrafica/js/bootstrap-hover-dropdown.js' %}"></script>
-    <script src="{% static 'recifegrafica/js/owl.carousel.min.js' %}"></script>
+    <!-- <script src="{% static 'recifegrafica/js/owl.carousel.min.js' %}"></script> -->
     <script src="{% static 'recifegrafica/js/front.js' %}"></script>
+
 
 
 {% endblock %}

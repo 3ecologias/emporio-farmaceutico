@@ -7,20 +7,23 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand home" href="/"  >
-            <img src="{% static 'recifegrafica/img/logo.svg' %}" alt="Obaju logo" class="hidden-xs">
-            <img src="{% static 'img/logo-small.svg' %}" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
+            <img src="{% static 'recifegrafica/img/logo.svg' %}" alt="Recife Gráfica" class="hidden-xs">
+            <img src="{% static 'recifegrafica/img/logo-small.svg' %}" alt="Recife Gráfica" class="logo-xs visible-xs"><span class="sr-only">Obaju - go to homepage</span>
             </a>
             <div class="navbar-buttons">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                <button type="button" class="navbar-toggle btn btn-default" data-toggle="collapse" data-target="#navigation">
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-align-justify"></i>
                 </button>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                <button type="button" class="navbar-toggle btn btn-default" data-toggle="collapse" data-target="#search">
                     <span class="sr-only">Toggle search</span>
                     <i class="fa fa-search"></i>
                 </button>
-                <a class="btn btn-default navbar-toggle" href="basket.html">
+                <a class="btn btn-default navbar-toggle" href="{% url 'basket:summary' %}">
                     <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 items in cart</span>
+                </a>
+                <a class="btn btn-default navbar-toggle" href="{% url 'customer:login' %}" id="login_link">
+                  <i class="fa fa-user"></i>
                 </a>
             </div>
         </div>
@@ -33,11 +36,11 @@
                       {% if not category.get_ancestors %}
                           {% if category.get_descendants %}
                           <li class="dropdown yamm-fw">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"  data-hover="dropdown" data-delay="200">
                               {{ category.name }}
                               <b class="caret"></b>
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" role="menu">
                               <li>
                                 <div class="yamm-content">
                                   <div class="row">
@@ -56,9 +59,14 @@
            </ul>
          </div>
          <div class="navbar-buttons">
+           <div class="navbar-collapse collapse right" id="user-not-collapsed">
+             <a class="btn btn-primary navbar-btn" href="{% url 'customer:login' %}" id="login_link">
+               <i class="fa fa-user"></i>
+             </a>
+           </div>
           {% block mini-basket %}
             <div class="navbar-collapse collapse right" id="basket-overview">
-              <a href="{% url 'basket:summary' %}" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">{% trans "Basket total:" %}
+              <a href="{% url 'basket:summary' %}" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">
                 {% if request.basket.is_tax_known %}
                 {{ request.basket.total_incl_tax|currency:request.basket.currency }}
                 {% else %}

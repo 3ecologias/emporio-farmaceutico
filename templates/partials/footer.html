@@ -1,0 +1,91 @@
+{% load i18n %}
+{% load staticfiles %}
+<footer class="footer container-fluid">
+    {% block footer %}
+
+    <div id="footer" data-animate="fadeInUp">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-8">
+                    <h4>Saiba mais</h4>
+
+                    <ul>
+                        <li><a href="text.html">Sobre</a>
+                        </li>
+                        <li><a href="text.html">Termos e condições</a>
+                        </li>
+                        <li><a href="faq.html">FAQ</a>
+                        </li>
+                        <li><a href="contact.html">Fale conosco</a>
+                        </li>
+                    </ul>
+
+                    <hr>
+                    <hr class="hidden-md hidden-lg hidden-sm">
+
+                </div>
+                <!-- /.col-md-3 -->
+
+                <div class="col-md-2 col-sm-8">
+
+                  <h4>Sua conta</h4>
+
+                    <ul>
+                        <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                        </li>
+                        <li><a href="register.html">Registro</a>
+                        </li>
+                    </ul>
+                    <hr class="hidden-md hidden-lg">
+
+                </div>
+                <!-- /.col-md-3 -->
+
+                <div class="col-md-2 col-sm-8">
+
+                    <h4>Endereço</h4>
+
+                    <p><strong>Recife Gráfica</strong>
+                        <br>Rua dos Pescadores, 81
+                        <br>São José
+                        <br>Recife
+                        <br>Pernambuco
+                        <br>50030-010
+                    </p>
+
+                    <hr class="hidden-md hidden-lg">
+
+                </div>
+                <!-- /.col-md-3 -->
+
+                <!-- /.col-md-3 -->
+
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#footer -->
+
+    <!-- *** FOOTER END *** -->
+
+            <!-- *** COPYRIGHT ***
+     _________________________________________________________ -->
+            <div id="copyright">
+                <div class="container">
+                    <div class="col-md-6">
+                        <p class="pull-left">© 2017 Recife Gráfica</p>
+
+                    </div>
+                    <div class="col-md-6">
+                        <p class="pull-right"><a href="http://3ecologias.net" target="_blank"><img src="{% static 'recifegrafica/img/logo-3e.png' %}"></a>
+                             <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- *** COPYRIGHT END *** -->
+
+    {% endblock %}
+</footer>

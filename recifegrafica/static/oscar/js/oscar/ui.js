@@ -141,8 +141,11 @@ var oscar = (function(o, $) {
             }
         },
         initSlider: function() {
-            $('.carousel').carousel({
-                interval: 20000
+            // $('.carousel').carousel({
+            //     interval: 1000
+            // });
+            $("#top-slide").carousel({
+              swipe: 50 // percent-per-second, default is 50. Pass false to disable swipe
             });
         }
     };

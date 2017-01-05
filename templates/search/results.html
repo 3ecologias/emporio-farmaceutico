@@ -53,13 +53,13 @@
         {% if paginator.count %}
             {% if paginator.num_pages > 1 %}
                 {% blocktrans with start=page.start_index end=page.end_index num_results=paginator.count %}
-                    Found <strong>{{ num_results }}</strong> results, showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+                    Encontrado <strong>{{ num_results }}</strong> resultados, mostrando <strong>{{ start }}</strong> a <strong>{{ end }}</strong>.
                 {% endblocktrans %}
             {% else %}
                 {% blocktrans count num_results=paginator.count %}
-                    Found <strong>{{ num_results }}</strong> result.
+                    Encontrado <strong>{{ num_results }}</strong> resultado.
                 {% plural %}
-                    Found <strong>{{ num_results }}</strong> results. 
+                    Encontrado <strong>{{ num_results }}</strong> resultados.
                 {% endblocktrans %}
             {% endif %}
             <div class="pull-right">
@@ -67,7 +67,7 @@
             </div>
         {% else %}
             <p>
-                {% trans "Found <strong>0</strong> results." %}
+                Encontrado <strong>0</strong> resultados.
                 {% if suggestion %}
                     {% url 'search:search' as search_url %}
                     {% blocktrans %}
@@ -84,7 +84,7 @@
                 {% render_product result.object %}
             {% endfor %}
             {% include "partials/pagination.html" with page_obj=page %}
-        </div>	
+        </div>
     {% endif %}
 
 {% endblock %}

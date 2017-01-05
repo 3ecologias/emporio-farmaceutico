@@ -6,7 +6,6 @@ $(function() {
 
     animations();
     productDetailGallery(4000);
-    carousels();
     utils();
     demo();
 });
@@ -128,41 +127,11 @@ function utils() {
 	    scrollTop: target_top
 	}, 1000);
     }
-}
-
-/* carousels */
-
-function carousels() {
-
-    $("#get-inspired").owlCarousel({
-	navigation: true, // Show next and prev buttons
-	slideSpeed: 300,
-	paginationSpeed: 400,
-	autoPlay: true,
-	stopOnHover: true,
-	singleItem: true,
-	afterInit: ''
-    });
-
-    $('.product-slider').owlCarousel({
-	navigation: true, // Show next and prev buttons
-	slideSpeed: 300,
-	paginationSpeed: 400,
-	afterInit: function() {
-	    $('.product-slider .item').css('visibility', 'visible');
-	}
-    });
-
-    $('#main-slider').owlCarousel({
-	navigation: true, // Show next and prev buttons
-	slideSpeed: 300,
-	paginationSpeed: 400,
-	autoPlay: true,
-	stopOnHover: true,
-	singleItem: true,
-	afterInit: ''
-    });
-
+  $(document).on('click','.navbar-collapse.in',function(e) {
+      if( $(e.target).is('a') && ( $(e.target).attr('class') != 'dropdown-toggle' ) ) {
+          $(this).collapse('hide');
+      }
+  });
 }
 
 /* animations */

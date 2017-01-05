@@ -25,7 +25,7 @@ SECRET_KEY = '0u!2w1xt06#j39d^7o(@!e&ro2mi^g=3^h-m#b&ld)t03m)15d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.25.37']
 
 
 # Application definition
@@ -191,6 +191,8 @@ OSCAR_ORDER_STATUS_PIPELINE = {
 }
 
 OSCAR_DEFAULT_CURRENCY = "BRL"
+
+OSCAR_SHOP_NAME = "Recife Grafica"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
