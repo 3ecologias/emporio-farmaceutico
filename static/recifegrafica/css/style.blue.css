@@ -86,11 +86,12 @@ ul {
   margin-bottom: 20px;
 }
 .navbar .yamm-content h5 {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 1.3em;
+  font-weight: 500;
   text-transform: uppercase;
   padding-bottom: 10px;
-  border-bottom: dotted 1px #555555;
+  color: #fff;
+  /*border-bottom: dotted 1px #555555;*/
 }
 @media (max-width: 767px) {
   .navbar .yamm-content h5 {
@@ -103,17 +104,17 @@ ul {
 }
 .navbar .yamm-content ul li {
   list-style-type: none;
-  border-bottom: solid 1px #eeeeee;
+  /*border-bottom: solid 1px #eeeeee;*/
   text-transform: uppercase;
   padding: 4px 0;
 }
 .navbar .yamm-content ul li a {
-  color: #999999;
+  color: #FFF;
   font-size: 12px;
   display: block;
 }
 .navbar .yamm-content ul li a:hover {
-  color: #4993e4;
+  color: #00356f;
   text-decoration: none;
 }
 .navbar .yamm-content .banner {
@@ -122,6 +123,12 @@ ul {
 .navbar ul.nav > li > a {
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 1.5em;
+}
+.navbar ul.nav > li > a:hover {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 .navbar #search {
   clear: both;
@@ -604,10 +611,10 @@ ul {
   text-decoration: underline;
 }
 #content #productMain .price {
-  font-size: 30px;
+  font-size: 3em;
   font-weight: 300;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 0px;
 }
 #content #productMain .buttons {
   margin-bottom: 0;
@@ -987,6 +994,7 @@ ul {
 }
 .yamm .yamm-content {
   padding: 20px 30px;
+  background: #4993e4;
 }
 @media (max-width: 767px) {
   .yamm .yamm-content {
@@ -996,6 +1004,7 @@ ul {
 .yamm .dropdown.yamm-fw .dropdown-menu {
   left: 0;
   right: 0;
+  border: none;
 }
 /* Original Boostrap template overwrite */
 /* nav */
@@ -1262,13 +1271,13 @@ ul {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333333;
+  color: #FFF!important;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #555555;
+  color: #FFF;
   background-color: #4993e4;
 }
 .navbar-default .navbar-nav > .disabled > a,
@@ -1294,7 +1303,7 @@ ul {
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   background-color: #4993e4;
-  color: #555555;
+  color: #FFF;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -1378,8 +1387,8 @@ hr {
 .btn {
   font-weight: normal;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
-  padding: 6px 0px;
-  font-size: 1.2em;
+  padding: 6px 5px;
+  font-size: 1.5em;
   line-height: 1.42857143;
   border-radius: 3px;
 }
@@ -1758,4 +1767,12 @@ address {
 
 #all {
   margin-bottom: 3em;
+}
+
+.input-group-btn {
+  font-size: 1em;
+}
+
+.box h1 {
+  margin-bottom: 0px;
 }

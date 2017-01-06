@@ -132,6 +132,19 @@ function utils() {
           $(this).collapse('hide');
       }
   });
+
+  $(window).scroll(function () {
+      //if you hard code, then use console
+      //.log to determine when you want the
+      //nav bar to stick.
+      console.log($(window).scrollTop())
+    if ($(window).scrollTop() > 300) {
+      $('#navbar').addClass('navbar-fixed-top animated fadeInUp');
+    }
+    if ($(window).scrollTop() < 300) {
+      $('#navbar').removeClass('navbar-fixed-top animated fadeInUp');
+    }
+  });
 }
 
 /* animations */
