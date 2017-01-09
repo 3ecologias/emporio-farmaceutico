@@ -1006,6 +1006,10 @@ ul {
   right: 0;
   border: none;
 }
+
+.dropdown-menu {
+  background: none!important;
+}
 /* Original Boostrap template overwrite */
 /* nav */
 .nav {
