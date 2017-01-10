@@ -9,3 +9,8 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
     "compressor.finders.CompressorFinder",
 ]
+
+OSCAR_DASHBOARD_NAVIGATION.append({
+    'label': 'Frete',
+    'url_name': 'dashboard:shipping-method-list'
+})
