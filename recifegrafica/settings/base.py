@@ -25,7 +25,11 @@ SECRET_KEY = '0u!2w1xt06#j39d^7o(@!e&ro2mi^g=3^h-m#b&ld)t03m)15d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['192.168.25.40']
+=======
+ALLOWED_HOSTS = ['192.168.25.37']
+>>>>>>> origin/master
 
 
 # Application definition
@@ -158,7 +162,7 @@ INSTALLED_APPS += [
     'django.contrib.flatpages',
     'compressor',
     'widget_tweaks',
-] + get_core_apps()
+]
 
 SITE_ID = 1
 
@@ -196,22 +200,6 @@ OSCAR_SHOP_NAME = "Recife Grafica"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-#####################################################
-# oscardemo modifications for 2.payment             #
-#####################################################
-#
-# INSTALLED_APPS += ['paypal']
-#
-# from django.utils.translation import ugettext_lazy as _
-#
-# # the dashboard navigation is fully customizable via settings, in this case we just append the paypal menu item
-# OSCAR_DASHBOARD_NAVIGATION.append({
-#     'label': _('PayPal'),
-#     'icon': 'icon-globe',
-#     'children': [
-#         {
-#             'label': _('Express transactions'),
-#             'url_name': 'paypal-express-list',
-#         },
-#     ]
-# })
+INSTALLED_APPS += [
+    'recifegrafica',
+] + get_core_apps(['recifegrafica.shipping'])
