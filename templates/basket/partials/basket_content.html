@@ -23,7 +23,7 @@
 {% endif %}
 
 {% if not basket.is_empty %}
-	<div class="col-md-9" id="basket">
+	<div class="col-md-8" id="basket">
 		<div class="box">
 			<div class="table-responsive">
 				<form action="." method="post" class="basket_summary" id="basket_formset">
@@ -31,7 +31,7 @@
 					{% block basket_form_headers %}
 					<table class="table">
 						<thead>
-							<tr>
+							<tr class="basket-totals">
 								<th colspan="2">{% trans "Product" %}</th>
 								<th>{% trans "Quantity" %}</th>
 								<th>{% trans "Price" %}</th>
@@ -119,7 +119,7 @@
 
 	{% endblock basket_form_main %}
 
-	<div class="col-md-3">
+	<div class="col-md-4">
 		<div class="box" id="order-summary">
 			{% block baskettotals %}
 				<div class="box-header">

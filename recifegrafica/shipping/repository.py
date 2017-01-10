@@ -10,7 +10,7 @@ from django.contrib import messages
 class HandDelivery(methods.FixedPrice):
 
     code = "hand-delivery"
-    name = _("Hand Delivery")
+    name = _("Entrega Expressa")
     charge_excl_tax = D('0.00')
     charge_incl_tax = D('15.00')
 

@@ -2,7 +2,7 @@
 {% load currency_filters %}
 {% load shipping_tags %}
 
-<div id="basket_totals" class="table-responsive">
+<div id="basket_totals" class="table-responsive basket-order">
     <table class="table">
         <tbody>
             <tr>
@@ -13,7 +13,7 @@
                     {% if offer_discounts or voucher_discounts %}
                         {# Order subtotal will be discounted so we show a before and after version #}
                         <tr>
-                            <td>{% trans "Order subtotal (before discounts)" %}</td>
+                            <td>{% trans "Subtotal do Pedido (before discounts)" %}</td>
                             <td>
                                 {% if basket.is_tax_known and not show_tax_separately %}
                                     {{ basket.total_incl_tax_excl_discounts|currency:basket.currency }}
@@ -59,7 +59,7 @@
                 {% block basket_total %}
                     {% if offer_discounts or voucher_discounts %}
                         <tr>
-                            <th>{% trans "Order subtotal (after discounts)" %}</th>
+                            <th>{% trans "SubTotal do Pedido (after discounts)" %}</th>
                             <th>
                                 {% if not show_tax_separately and basket.is_tax_known %}
                                     {{ basket.total_incl_tax|currency:basket.currency }}
@@ -71,7 +71,7 @@
                     {% else %}
                         {# No discounts to basket #}
                         <tr>
-                            <th >{% trans "Order subtotal" %}</th>
+                            <th >{% trans "SubTotal do Pedido" %}</th>
                             <th >
                                 {% if not show_tax_separately and basket.is_tax_known %}
                                     {{ basket.total_incl_tax|currency:basket.currency }}
@@ -85,10 +85,10 @@
             {% endwith %}
 
             {% block shipping_totals %}
-                <tr>
+                <!-- <tr>
                     <th>&nbsp;</th>
                     <td></td>
-                </tr>
+                </tr> -->
 
                 <tr>
                     <th colspan="2">
@@ -151,10 +151,10 @@
 
             {% block tax_totals %}
                 {% if show_tax_separately %}
-                    <tr>
+                    <!-- <tr>
                         <th>&nbsp;</th>
                         <td></td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <th colspan="2">
                             <h3>{% trans "Tax" %}</h3>
@@ -177,10 +177,10 @@
 
             {% block post_order_action_totals %}
                 {% if basket.post_order_actions %}
-                    <tr>
+                    <!-- <tr>
                         <th>&nbsp;</th>
                         <td></td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <th><h3>{% trans "Post order actions" %}</h3><small>{% trans "These will be applied once your order is placed." %}</small></th>
                         <td></td>
@@ -197,10 +197,10 @@
             {% endblock %}
 
             {% block order_total %}
-                <tr>
+                <!-- <tr>
                     <th>&nbsp;</th>
                     <td></td>
-                </tr>
+                </tr> -->
                 <tr>
                     <th ><h3>{% trans "Total" %}</h3></th>
                     <td >
