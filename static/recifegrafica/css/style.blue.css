@@ -1009,6 +1009,7 @@ ul {
 
 .dropdown-menu {
   background: none!important;
+  z-index: 9999;
 }
 /* Original Boostrap template overwrite */
 /* nav */
@@ -1779,4 +1780,13 @@ address {
 
 .box h1 {
   margin-bottom: 0px;
+}
+
+.navbar-inverse {
+  background-color: #4993e4 !important;
+}
+
+.navbar-inverse .navbar-text {
+  color: #00356f;
+  font-size: 1.3em;
 }
