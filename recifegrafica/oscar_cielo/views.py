@@ -25,9 +25,12 @@ class CieloPaymentDetailsView(BasePaymentDetailsView,
 
     def handle_payment(self, order_number, total_incl_tax, **kwargs):
         attempt = self.capture_cielo_payment(order_number, total_incl_tax)
-        transaction_id = attempt.transaction_id
+
+        transaction_id = attempt['transaction']
 
         source_type, _ = SourceType.objects.get_or_create(name='Cielo')
+
+        total_incl_tax = total_incl_tax.incl_tax
 
         source = Source(
             source_type=source_type,
@@ -39,7 +42,9 @@ class CieloPaymentDetailsView(BasePaymentDetailsView,
 
         self.add_payment_source(source)
 
+
     def place_order(self, *args, **kwargs):
+
         order = super(CieloPaymentDetailsView, self).place_order(*args,
                                                                  **kwargs)
         order.set_status(self.PROCESSED_STATUS)
