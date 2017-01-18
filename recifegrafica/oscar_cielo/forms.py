@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from oscar.apps.checkout.forms import *
 from oscar.apps.payment.forms import BankcardForm
+from decimal import Decimal
 
 from cielo import PaymentAttempt
 
@@ -32,7 +33,7 @@ class CieloForm(BankcardForm):
     card_type = forms.ChoiceField(choices=CARD_TYPE_CHOICES,label=_("Tipo do cartao"))
     installments = forms.ChoiceField(choices=(), label=_("Numero de parcelas"))
 
-    number_of_installments = 10
+    number_of_installments = 12
 
     def __init__(self, order_total, *args, **kwargs):
         super(CieloForm, self).__init__(*args, **kwargs)
@@ -42,19 +43,29 @@ class CieloForm(BankcardForm):
         # Needed to calculate installments
         self._order_total = order_total
 
-        installments_choices = []
+        installments_choices = []   
 
         for installment in range(1, self.number_of_installments+1):
+
+            #aplying interest
+
+            if(installment<4):
+                total = order_total + (order_total*Decimal(0.0325))
+            elif(installment<7):
+                total = order_total + (order_total*Decimal(0.0350))
+            else:
+                total = order_total + (order_total*Decimal(0.0400))
+
             installment_label = self.get_installment_label(
                 installment,
-                order_total / installment,
+                total / installment,
             )
             installments_choices.append((installment, installment_label))
 
         self.fields['installments'].choices = installments_choices
 
     def get_installment_label(self, installment, value):
-        return '%dx de R$%s (s/ juros)' % (
+        return '%dx de R$%s' % (
             installment,
             number_format(value, decimal_pos=2),
         )

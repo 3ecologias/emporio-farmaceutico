@@ -136,6 +136,15 @@ class CieloPaymentDetailsMixin(object):
 
             order_total = form._order_total
             order_installments = int(form_data.get('installments'))
+            
+            # Applying interest
+            if order_installments<4:
+                order_total += (order_total * Decimal(0.0325))
+            elif order_installments<7:
+                order_total += (order_total * Decimal(0.0350))
+            else:
+                order_total += (order_total * Decimal(0.0400))
+
             order_installment_value = order_total / order_installments
 
             order_card_type_label =\
@@ -173,20 +182,29 @@ class CieloPaymentDetailsMixin(object):
 
     def capture_cielo_payment(self, order_number, total_incl_tax):
         form = self.get_cielo_form()
+        
         if not form.is_valid():
             print (form.errors)
             """ Something wrong with the submitted values
             Maybe some value was changed before submiting
             """
             raise
-        print("**** ATTEMPT ****")
+        #APLYING INTEREST#    
+        form_data = form.cleaned_data
+        order_installments = int(form_data.get('installments'))
 
+        # if order_installments<4:
+        #     total_incl_tax.incl_tax += (total_incl_tax.incl_tax * Decimal(0.0325))
+        # elif order_installments<7:
+        #     total_incl_tax.incl_tax += (total_incl_tax.incl_tax * Decimal(0.0350))
+        # else:
+        #     total_incl_tax.incl_tax += (total_incl_tax.incl_tax * Decimal(0.0400))
 
         attempt = self.get_cielo_payment_data(
             order_number, total_incl_tax, form.cleaned_data)
 
         attempt['total'] = attempt['total'].incl_tax
-
+        print(attempt['total'])
         attempt_cielo = PaymentAttempt(**attempt)
 
         try:

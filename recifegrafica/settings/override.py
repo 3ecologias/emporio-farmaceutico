@@ -103,3 +103,13 @@ LOGGING = {
 ## PHONES ##
 
 PHONENUMBER_DEFAULT_REGION = 'BR'
+
+# EMAIL CONFIGURATION #
+
+OSCAR_FROM_EMAIL = 'admin@3ecologias.net'
+DEFAULT_FROM_EMAIL = 'admin@3ecologias.net'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'juliaroberts@3ecologias.net'
+EMAIL_HOST_PASSWORD = 'Tatub0lana0b0la'
+EMAIL_USE_TLS = True 
+EMAIL_PORT = 587

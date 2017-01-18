@@ -10,7 +10,7 @@ class CieloPaymentDetailsView(BasePaymentDetailsView,
                               CieloPaymentDetailsMixin):
 
     PROCESSED_STATUS = getattr(settings, 'OSCAR_CIELO_PROCESSED_STATUS',
-                                         'Processado')
+                                         'Being processed')
 
     def get_context_data(self, **kwargs):
         context = super(CieloPaymentDetailsView, self).get_context_data(
