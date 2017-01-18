@@ -204,7 +204,7 @@
                 <tr>
                     <th ><h3>{% trans "Total" %}</h3></th>
                     <td >
-                        <h3 class="price">
+                        <h3 class="white">
                             {% if order_total.is_tax_known %}
                                 {{ order_total.incl_tax|currency:basket.currency }}
                             {% else %}
