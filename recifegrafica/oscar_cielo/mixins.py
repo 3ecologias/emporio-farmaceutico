@@ -29,8 +29,8 @@ class CieloPaymentDetailsMixin(object):
 
     def get_cielo_credentials(self):
         return {
-            'affiliation_id': getattr(settings, 'OSCAR_CIELO_NUMERO', '1006993069'),
-            'api_key': getattr(settings, 'OSCAR_CIELO_CHAVE', '25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3'),
+            'affiliation_id': getattr(settings, 'OSCAR_CIELO_NUMERO', '1088067821'),
+            'api_key': getattr(settings, 'OSCAR_CIELO_CHAVE', 'efb6cfe18f054db04c37083935b40281609d6c564b8c00b5cae3cc595007c7e5'),
         }
 
     def get_cielo_payment_data(self, order_number, total_incl_tax, form_data):
@@ -146,7 +146,7 @@ class CieloPaymentDetailsMixin(object):
             # else:
             #     order_total += (order_total * Decimal(0.0400))
             #
-            # order_installment_value = order_total / order_installments
+            order_installment_value = order_total / order_installments
 
             order_card_type_label =\
                 dict(form.fields['card_type'].choices)[
