@@ -159,6 +159,7 @@
                 </p>
             {% else %}
                 <ol class="list-unstyled review-list">
+                    {{ product.review }}
                     {% for review in product.reviews.approved.all|slice:":3" %}
                         <li>
                         {% include 'catalogue/partials/review.html' %}

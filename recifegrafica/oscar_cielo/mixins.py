@@ -42,7 +42,7 @@ class CieloPaymentDetailsMixin(object):
             transaction = PaymentAttempt.INSTALLMENT_STORE
 
         data = {
-            'sandbox': getattr(settings, 'OSCAR_CIELO_SANDBOX', True),
+            'sandbox': getattr(settings, 'OSCAR_CIELO_SANDBOX', False),
             'card_type': form_data.get('card_type'),
             'card_number': form_data.get('number'),
             'cvc2': form_data.get('ccv'),
@@ -136,16 +136,17 @@ class CieloPaymentDetailsMixin(object):
 
             order_total = form._order_total
             order_installments = int(form_data.get('installments'))
-            
-            # Applying interest
-            if order_installments<4:
-                order_total += (order_total * Decimal(0.0325))
-            elif order_installments<7:
-                order_total += (order_total * Decimal(0.0350))
-            else:
-                order_total += (order_total * Decimal(0.0400))
 
-            order_installment_value = order_total / order_installments
+            # Applying interest
+
+            # if order_installments<4:
+            #     order_total += (order_total * Decimal(0.0325))
+            # elif order_installments<7:
+            #     order_total += (order_total * Decimal(0.0350))
+            # else:
+            #     order_total += (order_total * Decimal(0.0400))
+            #
+            # order_installment_value = order_total / order_installments
 
             order_card_type_label =\
                 dict(form.fields['card_type'].choices)[
@@ -182,14 +183,14 @@ class CieloPaymentDetailsMixin(object):
 
     def capture_cielo_payment(self, order_number, total_incl_tax):
         form = self.get_cielo_form()
-        
+
         if not form.is_valid():
             print (form.errors)
             """ Something wrong with the submitted values
             Maybe some value was changed before submiting
             """
             raise
-        #APLYING INTEREST#    
+        #APLYING INTEREST#
         form_data = form.cleaned_data
         order_installments = int(form_data.get('installments'))
 

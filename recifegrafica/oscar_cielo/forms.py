@@ -43,18 +43,18 @@ class CieloForm(BankcardForm):
         # Needed to calculate installments
         self._order_total = order_total
 
-        installments_choices = []   
+        installments_choices = []
 
         for installment in range(1, self.number_of_installments+1):
 
             #aplying interest
-
-            if(installment<4):
-                total = order_total + (order_total*Decimal(0.0325))
-            elif(installment<7):
-                total = order_total + (order_total*Decimal(0.0350))
-            else:
-                total = order_total + (order_total*Decimal(0.0400))
+            total = order_total
+            # if(installment<4):
+            #     total = order_total + (order_total*Decimal(0.0325))
+            # elif(installment<7):
+            #     total = order_total + (order_total*Decimal(0.0350))
+            # else:
+            #     total = order_total + (order_total*Decimal(0.0400))
 
             installment_label = self.get_installment_label(
                 installment,
