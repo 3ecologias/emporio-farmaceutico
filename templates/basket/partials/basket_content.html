@@ -101,13 +101,22 @@
                               <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>
                           {% endfor %}
                       {% endfor %}
+                      </form>
     								</td>
+                    <td>
+                      <form action="configure_arts/" method="post" enctype="multipart/form-data">
+                          {% csrf_token %}
+                          {{upload_form.document}}
+                          <input type="hidden" name="product_title" value="{{ product.get_title }}">
+                          <button type="submit">Upload</button>
+                        </form>
+                    </td>
     							</tr>
     							{% endwith %}
     							{% endfor %}
     						</tbody>
     					</table>
-    				</form>
+
     			</div>
 
     			{% block formactions %}

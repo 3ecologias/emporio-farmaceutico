@@ -199,4 +199,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 INSTALLED_APPS += [
     'recifegrafica',
     'recifegrafica.oscar_cielo',
-] + get_core_apps(['recifegrafica.shipping', 'recifegrafica.checkout'])
+    'recifegrafica.arts_and_orders',
+] + get_core_apps(['recifegrafica.shipping', 'recifegrafica.checkout', 'recifegrafica.basket'])
