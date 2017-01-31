@@ -13,11 +13,6 @@ STATICFILES_FINDERS = [
     "compressor.finders.CompressorFinder",
 ]
 
-OSCAR_DASHBOARD_NAVIGATION.append({
-    'label': 'Frete',
-    'url_name': 'dashboard:shipping-method-list'
-})
-
 #CIELO CONFIGURACOES
 
 OSCAR_CIELO_NUMERO="1088067821"
@@ -25,7 +20,7 @@ OSCAR_CIELO_CHAVE="efb6cfe18f054db04c37083935b40281609d6c564b8c00b5cae3cc595007c
 
 
 #Não cadastrados podem comprar
-OSCAR_ALLOW_ANON_CHECKOUT = True
+OSCAR_ALLOW_ANON_CHECKOUT = False
 
 #LOGGER
 
@@ -113,3 +108,19 @@ EMAIL_HOST_USER = 'juliaroberts@3ecologias.net'
 EMAIL_HOST_PASSWORD = 'Tatub0lana0b0la'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+
+#############################
+##~DASHBOARD CONFIGURATION~##
+#############################
+
+OSCAR_DASHBOARD_NAVIGATION.append({
+    'label': 'Frete',
+    'icon': 'icon-truck',
+    'url_name': 'dashboard:shipping-method-list'
+})
+
+OSCAR_DASHBOARD_NAVIGATION.append({
+    'label': 'Artes',
+    'icon': 'icon-truck',
+    'url_name': 'arts-list'
+})

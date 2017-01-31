@@ -19,6 +19,8 @@ class Document(models.Model):
     product_description = models.CharField("Descrição do produto", max_length=500, blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
+    
+
 class UploadForm(ModelForm):
 	class Meta:
 		model = Document

@@ -3,6 +3,7 @@ from recifegrafica.arts_and_orders.models import UploadForm
 from django.conf import settings
 from django.contrib.auth.models import User
 
+
 def simple_upload(request):
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
@@ -12,8 +13,9 @@ def simple_upload(request):
                 user = request.user
             document = form.cleaned_data['document']
             product_description = request.POST.get('product_title','')
-            form.product_description = product_description
             art = form.save(commit=False)
+            art.product_description = product_description
+            print art.product_description
             art.user = user
             art.save()
             return redirect('/basket')

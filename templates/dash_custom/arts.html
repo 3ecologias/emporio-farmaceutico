@@ -1,0 +1,14 @@
+{% extends "oscar/dashboard/layout.html" %}
+{% load i18n %}
+
+{% block dashboard_content %}
+  {% for file in files %}
+  <div class="col-xs-6">
+    <li>{{file.product_description}}</li>
+    <li>{{file.uploaded_at}}</li>
+    <li><a href="{{file.document.url}}" target="_blank">{{file.document.url}}</a></li>
+    <li>{{file.user}}</li>
+  </div>
+
+  {% endfor %}
+{% endblock %}
