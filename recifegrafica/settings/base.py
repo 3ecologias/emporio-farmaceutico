@@ -200,4 +200,4 @@ INSTALLED_APPS += [
     'recifegrafica',
     'recifegrafica.oscar_cielo',
     'recifegrafica.arts_and_orders',
-] + get_core_apps(['recifegrafica.shipping', 'recifegrafica.checkout', 'recifegrafica.basket'])
+] + get_core_apps(['recifegrafica.shipping', 'recifegrafica.checkout', 'recifegrafica.basket', 'recifegrafica.order'])

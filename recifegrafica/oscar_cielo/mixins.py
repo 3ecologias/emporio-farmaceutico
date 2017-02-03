@@ -29,8 +29,8 @@ class CieloPaymentDetailsMixin(object):
 
     def get_cielo_credentials(self):
         return {
-            'affiliation_id': getattr(settings, 'OSCAR_CIELO_NUMERO', '1088067821'),
-            'api_key': getattr(settings, 'OSCAR_CIELO_CHAVE', 'efb6cfe18f054db04c37083935b40281609d6c564b8c00b5cae3cc595007c7e5'),
+            'affiliation_id': getattr(settings, 'OSCAR_CIELO_NUMERO', ''),
+            'api_key': getattr(settings, 'OSCAR_CIELO_CHAVE', ''),
         }
 
     def get_cielo_payment_data(self, order_number, total_incl_tax, form_data):
@@ -42,7 +42,7 @@ class CieloPaymentDetailsMixin(object):
             transaction = PaymentAttempt.INSTALLMENT_STORE
 
         data = {
-            'sandbox': getattr(settings, 'OSCAR_CIELO_SANDBOX', False),
+            'sandbox': getattr(settings, 'OSCAR_CIELO_SANDBOX', True),
             'card_type': form_data.get('card_type'),
             'card_number': form_data.get('number'),
             'cvc2': form_data.get('ccv'),

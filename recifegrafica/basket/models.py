@@ -1,16 +1,11 @@
 from oscar.apps.basket.abstract_models import AbstractLine as CoreLine, AbstractBasket as CoreBasket
 from django.db import models
+import os
 
 class Line(CoreLine):
-    art_file = models.FileField(upload_to='documents/%Y/%m/%d', null=True, blank=True)
-
-class Basket(CoreBasket):
-    def get_line(self, product_pk):
-        for line in self.all_lines():
-            if(product_pk == line.product.pk):
-                string= line.product.pk
-        return string
-
-
+    art_file = models.FileField("Arquivo de arte", upload_to="Temp/", null=True, blank=True)
+    
+    def filename(self):
+        return os.path.basename(self.art_file.name )
 
 from oscar.apps.basket.models import *  # noqa
