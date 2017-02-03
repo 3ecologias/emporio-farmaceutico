@@ -200,7 +200,7 @@ var oscar = (function(o, $) {
                 o.basket.hideVoucherForm();
                 event.preventDefault();
             });
-            $('#content_inner').on('submit', '#basket_formset', o.basket.submitBasketForm);
+            $('#content_inner').on('click', '#update_qtd', o.basket.submitBasketForm);
             if (window.location.hash == '#voucher') {
                 o.basket.showVoucherForm();
             }
@@ -215,7 +215,6 @@ var oscar = (function(o, $) {
         },
         submitFormSuccess: function(data) {
             $('#content_inner').html(data.content_html);
-
             // Show any flash messages
             o.messages.clear();
             for (var level in data.messages) {

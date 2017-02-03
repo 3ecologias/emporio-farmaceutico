@@ -27,7 +27,7 @@
     	<div class="col-md-8" id="basket">
     		<div class="box">
     			<div class="table-responsive">
-    				<form action="." method="post" class="basket_summary" id="basket_formset">
+    				<form action="." method="post" class="basket_summary" id="basket_formset" enctype="multipart/form-data">
     					{% csrf_token %}
     					{% block basket_form_headers %}
     					<table class="table">
@@ -67,7 +67,7 @@
     										<div class="input-group  {% if form.errors %}error{% endif %}">
     											{% render_field form.quantity class+="form-control" %}
     											<span class="input-group-btn">
-    												<button class="btn btn-default" type="submit" data-loading-text="{% trans 'Updating...' %}">{% trans "Update" %}</button>
+    												<button class="btn btn-default" id="update_qtd" name="teste" type="submit" data-loading-text="{% trans 'Updating...' %}">{% trans "Update" %}</button>
     											</span>
     										</div>
     									</div>
@@ -101,22 +101,19 @@
                               <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>
                           {% endfor %}
                       {% endfor %}
-                      </form>
+
     								</td>
                     <td>
-                      <form action="configure_arts/" method="post" enctype="multipart/form-data">
-                          {% csrf_token %}
-                          {{upload_form.document}}
-                          <input type="hidden" name="product_title" value="{{ product.get_title }}">
-                          <button type="submit">Upload</button>
-                        </form>
+                      {% render_field form.art_file class+="form-control" %}
+                      {{line.pk}}
+                      <button class="btn btn-default" type="submit" name="upload_file" data-loading-text="{% trans 'Enviando...' %}">{% trans "Enviar" %}</button>
                     </td>
     							</tr>
     							{% endwith %}
     							{% endfor %}
     						</tbody>
     					</table>
-
+            </form>
     			</div>
 
     			{% block formactions %}
