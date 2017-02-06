@@ -8,12 +8,12 @@
                     <a href="{% url 'checkout:shipping-address' %}">
                         <span class="visible-inline-sm icon-chevron-right"></span>
                         <span>
-                            {% trans "1. Shipping address" %}
+                            {% trans "Shipping address" %}
                         </span>
                     </a>
                 {% else %}
                     <span class="navbar-text">
-                        {%  trans "1. Shipping address" %}
+                        {%  trans "Shipping address" %}
                     </span>
                 {% endif %}
             </li>
@@ -23,12 +23,12 @@
                     <a href="{% url 'checkout:shipping-method' %}">
                         <span class="visible-inline-sm icon-chevron-right"></span>
                         <span>
-                            {% trans "2. Shipping method" %}
+                            {% trans "Shipping method" %}
                         </span>
                     </a>
                 {% else %}
                     <span class="navbar-text">
-                        {%  trans "2. Shipping method" %}
+                        {%  trans "Forma de Envio" %}
                     </span>
                 {% endif %}
             </li>
@@ -38,25 +38,25 @@
                     <a href="{% url 'checkout:payment-details' %}">
                         <span class="visible-inline-sm icon-chevron-right"></span>
                         <span>
-                            {% trans "3. Payment" %}
+                            {% trans "Payment" %}
                         </span>
                     </a>
                 {% else %}
                     <span class="navbar-text">
-                        {%  trans "3. Payment" %}
+                        {%  trans "Payment" %}
                     </span>
                 {% endif %}
             </li>
 
             <li class="step4 {% if step == 4 %}active{% else %}disabled{% endif %} ">
                 <span class="navbar-text">
-                    {% trans "4. Resumo" %}
+                    {% trans "Resumo" %}
                 </span>
             </li>
 
             <li class="step5 {% if step == 5 %}active{% else %}disabled{% endif %} ">
                 <span class="navbar-text">
-                    {% trans "5. Confirmação" %}
+                    {% trans "Confirmação" %}
                 </span>
             </li>
         {% endspaceless %}

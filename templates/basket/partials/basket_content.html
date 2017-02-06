@@ -33,10 +33,11 @@
     					<table class="table">
     						<thead>
     							<tr class="basket-totals">
-    								<th colspan="2">{% trans "Product" %}</th>
+    								<th>{% trans "Product" %}</th>
     								<th>{% trans "Quantity" %}</th>
     								<th>{% trans "Price" %}</th>
     								<th colspan="2">{% trans "Total" %}</th>
+                    <th>Arte</th>
     							</tr>
     						</thead>
     					{% endblock %}
@@ -57,17 +58,15 @@
     									</a>
     									{% endthumbnail %}
     									{% endwith %}
-    								</td>
-    								<td>
-    									<a href="{{ product.get_absolute_url }}">{{ line.description }}</a>
-    									<p class="availability {{ session.availability.code }}">{{ session.availability.message }}</p>
+                      <a href="{{ product.get_absolute_url }}">{{ line.description }}</a>
+                      <p class="availability {{ session.availability.code }}">{{ session.availability.message }}</p>
     								</td>
     								<td>
     									<div class="checkout-quantity">
     										<div class="input-group  {% if form.errors %}error{% endif %}">
     											{% render_field form.quantity class+="form-control" %}
     											<span class="input-group-btn">
-    												<button class="btn btn-default" id="update_qtd" name="teste" type="submit" data-loading-text="{% trans 'Updating...' %}">{% trans "Update" %}</button>
+    												<button class="btn btn-default" id="update_qtd" name="teste" type="submit" data-loading-text="{% trans 'Updating...' %}"><icon class="fa fa-check"></i></button>
     											</span>
     										</div>
     									</div>
@@ -106,6 +105,9 @@
                     <td>
                       {% render_field form.hire_art class+="form-control" %}
                       {% render_field form.art_file class+="form-control" %}
+                      <label for="{{ form.art_file.name }}">Choose a file</label>
+                    </td>
+                    <td>
                       <button class="btn btn-default" type="submit" name="upload_file" data-loading-text="{% trans 'Enviando...' %}">{% trans "Enviar" %}</button>
                     </td>
     							</tr>

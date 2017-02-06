@@ -22,6 +22,7 @@ h1 {
 ul {
   list-style-type: none;
 }
+
 #top {
   background: #0457ac;
   padding: 10px 0;
@@ -122,13 +123,22 @@ ul {
 }
 .navbar ul.nav > li > a {
   text-transform: uppercase;
-  font-weight: bold;
   font-size: 1.5em;
 }
 .navbar ul.nav > li > a:hover {
   text-transform: uppercase;
-  font-weight: bold;
   font-size: 1.5em;
+}
+
+.navbar ul.nav >  li.active {
+  background:white;
+}
+
+.nav-checkout .active .navbar-text {
+  color: #4993e4;
+  font-size: 1.8em;
+  font-weight: bold;
+    text-transform: uppercase;
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -627,7 +637,7 @@ ul {
   color: #4993e4!important;
 }
 #content #productMain .availability {
-  font-size: 2em;
+  font-size: 1.2em;
   font-weight: 300;
   text-align: center;
   margin-top: 0px;
@@ -731,7 +741,6 @@ ul {
 #content #basket .table tbody tr td a,
 #content #customer-order .table tbody tr td a {
   vertical-align: middle;
-  font-size: 1.5em;
 }
 #content #checkout .table tbody tr td input,
 #content #basket .table tbody tr td input,
@@ -912,6 +921,12 @@ ul {
   font-size: 18px;
   font-weight: 300;
 }
+
+add-to-basket .btn, .btn-wishlist {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
 #footer {
   background: #e0e0e0;
   padding: 20px 0;
@@ -919,7 +934,15 @@ ul {
 #footer ul {
   padding-left: 0;
   list-style: none;
+    display: inline-flex;
 }
+
+#footer ul li {
+  padding-left: 3em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
 #footer ul a {
   color: #999999;
 }
@@ -1113,6 +1136,7 @@ ul {
   border: none;
   margin-bottom: 2em;
   margin-top: 1em;
+  font-size: 0.7em;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -1369,9 +1393,11 @@ ul {
 /* scaffolding */
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-size: 1em;
   line-height: 1.42857143;
   color: #333333;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 a {
   color: #4993e4;
@@ -1391,10 +1417,10 @@ a:focus {
   border-radius: 6px;
 }
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   border: 0;
-  border-top: 1px solid #eeeeee;
+  border-top: 0;
 }
 /* breadcrumbs */
 .breadcrumb {
@@ -1420,8 +1446,6 @@ hr {
 .btn {
   font-weight: normal;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
-  padding: 6px 5px;
-  font-size: 1.5em;
   line-height: 1.42857143;
   border-radius: 3px;
 }
@@ -1803,7 +1827,7 @@ address {
 }
 
 .input-group-btn {
-  font-size: 1em;
+  font-size: 0.7em;
 }
 
 .box h1 {
@@ -1816,8 +1840,8 @@ address {
 }
 
 .navbar-inverse .navbar-text {
-  color: #00356f;
-  font-size: 1.3em;
+  color: white;
+  font-size: 1.5em;
   text-transform: uppercase;
 }
 
