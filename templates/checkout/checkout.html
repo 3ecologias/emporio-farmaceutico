@@ -140,9 +140,11 @@
                             {% endif %}
                         </p>
                     </div>
-                    <div class="col-sm-2 align-right">
-                        <a href="{{line.art_file.url}}">{{line.art_file.filename}}</a>
-                    </div>
+                    {% if line.art_file %}
+                      <div class="col-sm-2 align-right">
+                          <a href="{{line.art_file.url}}">{{line.art_file.filename}}</a>
+                      </div>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}

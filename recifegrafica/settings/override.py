@@ -125,8 +125,8 @@ OSCAR_DASHBOARD_NAVIGATION.append({
     'url_name': 'dashboard:shipping-method-list'
 })
 
-OSCAR_DASHBOARD_NAVIGATION.append({
-    'label': 'Artes',
-    'icon': 'icon-truck',
-    'url_name': 'arts-list'
-})
+# OSCAR_DASHBOARD_NAVIGATION.append({
+#     'label': 'Artes',
+#     'icon': 'icon-truck',
+#     'url_name': 'arts-list'
+# })
