@@ -42,7 +42,7 @@ class CieloPaymentDetailsMixin(object):
             transaction = PaymentAttempt.INSTALLMENT_STORE
 
         data = {
-            'sandbox': getattr(settings, 'OSCAR_CIELO_SANDBOX', True),
+            'sandbox': getattr(settings, 'OSCAR_CIELO_SANDBOX', False),
             'card_type': form_data.get('card_type'),
             'card_number': form_data.get('number'),
             'cvc2': form_data.get('ccv'),

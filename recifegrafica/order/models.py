@@ -14,10 +14,11 @@ class Line(AbstractLine):
 
     def changeFileDirectory(self, name):
         line = Line.objects.get(id=self.id)
-        file_ = ContentFile(line.art_file.read())
-        file_.name = "{}".format(name)
-        line.art_file = file_
-        line.save()
+        if line.art_file:
+            file_ = ContentFile(line.art_file.read())
+            file_.name = "{}".format(name)
+            line.art_file = file_
+            line.save()
 
     def filename(self):
         return os.path.basename(self.art_file.name )
