@@ -210,7 +210,9 @@ class CieloPaymentDetailsMixin(object):
         try:
             attempt_cielo.get_authorized()
             attempt_cielo.capture()
+            print "pass"
         except (GetAuthorizedException, CaptureException), e:
+            print "except"
             raise exceptions.UnableToTakePayment(unicode(e))
 
         return attempt
