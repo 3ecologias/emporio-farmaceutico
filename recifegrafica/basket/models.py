@@ -8,7 +8,7 @@ class Line(CoreLine):
     hire_art = models.BooleanField("Contratou serviço de arte?", default=False)
 
     def filename(self):
-        return os.path.basename(self.art_file.name )
+        return os.path.basename(self.art_file.name)
 
 
 from oscar.apps.basket.models import *  # noqa

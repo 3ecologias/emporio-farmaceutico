@@ -74,14 +74,28 @@
     								</td>
                     <td>
                       <div class="art_hire_file">
-                          <label for="{{ form.hire_art.auto_id }}"> Contrate Arte
-                              {% render_field form.hire_art class+="form-control" %}
-                          </label>
-                          <label for="{{ form.art_file.auto_id }}">
-                              <i class="fa fa-upload fa-3x" aria-hidden="true"></i>
-                          </label>
-                          {% render_field form.art_file class+="form-control-none" %}
-                          <button class="btn btn-default" type="submit" name="upload_file" data-loading-text="{% trans 'Enviando...' %}">{% trans "Enviar" %}</button>
+                          <center>
+                            {% if not line.art_file %}
+                              <label for="{{ form.art_file.auto_id }}">
+                                  <i class="fa fa-upload fa-3x" aria-hidden="true"></i>
+                              </label>
+                              {% render_field form.art_file class+="form-control-none" %}
+                            {% else %}
+                              <label for="{{ form.art_file.auto_id }}">
+                                  <i class="fa fa-file fa-3x" aria-hidden="true"></i>
+                              </label>
+                              {% render_field form.art_file class+="form-control-none" %}
+                              <p><strong>{{line.filename}}</strong></p>
+                            {% endif %}
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                              <label for="{{ form.hire_art.auto_id }}">Contratar a arte</label>
+                              </span>
+                              <span class="input-group-addon">
+                                {% render_field form.hire_art class+="form-control" %}
+                              </span>
+                            </div>
+                          </center>
                       </div>
                       </td>
     								<td>
@@ -120,6 +134,8 @@
     							{% endfor %}
     						</tbody>
     					</table>
+              <button class="btn btn-default pull-right" type="submit" name="upload_file" data-loading-text="{% trans 'Enviando...' %}">{% trans "Enviar" %}</button>
+
             </form>
     			</div>
 

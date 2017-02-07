@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from oscar.apps.basket.forms import BasketLineForm as CoreBasketLine
-from django.forms import forms
+from django.forms import FileInput
 
 class BasketLineForm(CoreBasketLine):
     class Meta:
         fields = ['quantity','art_file', 'hire_art']
         labels = { 'art_file': 'Arquivo', 'hire_art': 'enviar'}
+        widgets = {
+            'art_file': FileInput(),
+        }
 
     def clean(self):
         clean_data = self.cleaned_data
