@@ -30,8 +30,8 @@
                 {% if shipping_address %}
                     <div class="well well-info">
                         {% block shipping_address_actions %}
-                            <a href="{% url 'checkout:shipping-address' %}" class="pull-right">
-                                {% trans "Change" %}
+                            <a href="{% url 'checkout:shipping-address' %}" class="pull-right" alt="editar">
+                                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                             </a>
                         {% endblock %}
                         <h3>{% trans "Address" %}</h3>
@@ -61,8 +61,8 @@
                 {% if shipping_method %}
                     <div class="well well-info">
                         {% block shipping_method_actions %}
-                            <a href="{% url 'checkout:shipping-method' %}" class="pull-right">
-                                {% trans "Change" %}
+                            <a href="{% url 'checkout:shipping-method' %}" class="pull-right" alt="editar">
+                                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                             </a>
                         {% endblock %}
                         <h3>{% trans "Shipping method" %}</h3>
@@ -84,8 +84,8 @@
                     <h2>{% trans "Payment" %}</h2>
                 </div>
                 <div class="well well-success">
-                    <a href="{% url 'checkout:payment-details' %}" class="pull-right">
-                        {% trans "Change" %}
+                    <a href="{% url 'checkout:payment-details' %}" class="pull-right" alt="editar">
+                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                     </a>
                     <h3>{% trans "Payment" %}</h3>
                     <p>{% trans "Payment details to go here" %}</p>
@@ -98,7 +98,7 @@
         <div class="sub-header">
             {% block order_contents_actions %}
                 <a href="{% url 'basket:summary' %}" class="pull-right">
-                    {% trans "Edit order contents" %}
+                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                 </a>
             {% endblock %}
 
@@ -142,7 +142,7 @@
                     </div>
                     {% if line.art_file %}
                       <div class="col-sm-2 align-right">
-                          <a href="{{line.art_file.url}}">{{line.art_file.filename}}</a>
+                          <a href="{{line.art_file.url}}"><i class="fa fa-file" aria-hidden="true"></i></a>
                       </div>
                     {% endif %}
                 </div>

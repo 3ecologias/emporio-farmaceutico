@@ -153,7 +153,7 @@
                                             <a href="{% url 'dashboard:order-line-detail' number=order.number line_id=line.id %}" class="btn btn-info">{% trans "View" %}</a>
                                         </td>
                                         <td>
-                                            <a href="{{line.art_file.url}}">{{line.filename}}</a>
+                                            <a href="{{line.art_file.url}}"><i class="fa fa-file" aria-hidden="true"></a>
                                         </td>
                                     </tr>
                                 {% endfor %}

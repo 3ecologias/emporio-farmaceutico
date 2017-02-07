@@ -35,9 +35,10 @@
     							<tr class="basket-totals">
     								<th>{% trans "Product" %}</th>
     								<th>{% trans "Quantity" %}</th>
-    								<th>{% trans "Price" %}</th>
-    								<th colspan="2">{% trans "Total" %}</th>
                     <th>Arte</th>
+                    <th>{% trans "Price" %}</th>
+    								<th colspan="2">{% trans "Total" %}</th>
+
     							</tr>
     						</thead>
     					{% endblock %}
@@ -71,6 +72,18 @@
     										</div>
     									</div>
     								</td>
+                    <td>
+                      <div class="art_hire_file">
+                          <label for="{{ form.hire_art.auto_id }}"> Contrate Arte
+                              {% render_field form.hire_art class+="form-control" %}
+                          </label>
+                          <label for="{{ form.art_file.auto_id }}">
+                              <i class="fa fa-upload fa-3x" aria-hidden="true"></i>
+                          </label>
+                          {% render_field form.art_file class+="form-control-none" %}
+                          <button class="btn btn-default" type="submit" name="upload_file" data-loading-text="{% trans 'Enviando...' %}">{% trans "Enviar" %}</button>
+                      </div>
+                      </td>
     								<td>
     									<p class="price">
     										{% if line.is_tax_known %}
@@ -102,15 +115,6 @@
                       {% endfor %}
 
     								</td>
-                    <td>
-                      {% render_field form.hire_art class+="form-control" %}
-
-                      {% render_field form.art_file class+="form-control" %}
-                    </td>
-                    <td>
-                      <p>Escolha uma opção relativa a configuração da sua arte, e envie</p>
-                      <button class="btn btn-default" type="submit" name="upload_file" data-loading-text="{% trans 'Enviando...' %}">{% trans "Enviar" %}</button>
-                    </td>
     							</tr>
     							{% endwith %}
     							{% endfor %}

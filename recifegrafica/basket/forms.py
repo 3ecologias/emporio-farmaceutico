@@ -5,7 +5,7 @@ from django.forms import forms
 class BasketLineForm(CoreBasketLine):
     class Meta:
         fields = ['quantity','art_file', 'hire_art']
-        labels = { 'art_file': 'Selecione um arquivo', 'hire_art': 'enviar'}
+        labels = { 'art_file': 'Arquivo', 'hire_art': 'enviar'}
 
     def clean(self):
         clean_data = self.cleaned_data

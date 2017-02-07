@@ -1520,6 +1520,9 @@ label {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+input[type=file] {
+  display: none!important;
+}
 .form-group {
   margin-bottom: 20px;
 }
@@ -1850,6 +1853,18 @@ address {
   width: 98%;
 }
 
+.alert-info {
+  color: #ffffff!important;
+  background-color: #4993e4!important;
+  border-color: #4993e4!important;
+}
+
+.btn-info {
+    color: #4993e4!important;
+    background-color: #ffffff!important;
+    border-color: #ffffff!important;
+}
+
 .sub-header h2, .sub-header h3, .sub-header h4 {
   text-transform: uppercase;
 }
@@ -1925,4 +1940,15 @@ td .price, .basket-totals {
 
 .helptext {
   display: none;
+}
+
+.category-browse {
+  font-size: 1.1em;
+}
+
+.form-actions {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-top: 0;
 }

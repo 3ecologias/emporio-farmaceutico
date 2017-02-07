@@ -30,7 +30,7 @@
                     <li>
                         <a href="{{ tree_category.get_absolute_url }}">
                             {% if tree_category.pk == category.pk %}
-                                <strong>{{ tree_category.name }}</strong>
+                                <strong class="category-browse">{{ tree_category.name }}</strong>
                             {% else %}
                                 {{ tree_category.name }}
                             {% endif %}
