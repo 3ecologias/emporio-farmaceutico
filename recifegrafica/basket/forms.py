@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from oscar.apps.basket.forms import BasketLineForm as CoreBasketLine
-from django.forms import FileInput
+from django.forms import FileInput, forms
 
 class BasketLineForm(CoreBasketLine):
     class Meta:
