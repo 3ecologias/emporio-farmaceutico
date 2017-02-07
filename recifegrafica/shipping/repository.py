@@ -12,7 +12,7 @@ class HandDelivery(methods.FixedPrice):
     code = "hand-delivery"
     name = _("Entrega Expressa")
     charge_excl_tax = D('0.00')
-    charge_incl_tax = D('00.90')
+    charge_incl_tax = D('1.00')
 
 class Repository(CoreRepository):
 

@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, HttpResponseRedirect
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.utils.http import is_safe_url
@@ -47,7 +47,10 @@ class BasketView(CoreBasketView):
                     self.request.line = get_model('basket', 'Line').objects.get(basket=self.request.basket, product=line.product.pk)
                     self.request.line.art_file = form.instance.art_file
                     self.request.line.save()
+            BasketMessageGenerator().get_conf_sucess(self.request, self.request.basket)
 
+            return HttpResponseRedirect(super(BasketView, self).get_success_url())
+            # return response
         return super(BasketView, self).formset_valid(formset)
 
     def get_context_data(self, **kwargs):
