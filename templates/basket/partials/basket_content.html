@@ -76,25 +76,27 @@
                       <div class="art_hire_file">
                           <center>
                             {% if not line.art_file %}
-                              <label for="{{ form.art_file.auto_id }}">
+                              <label for="{{ form.art_file.auto_id }}" class="mouse-pointer">
                                   <i class="fa fa-upload fa-3x" aria-hidden="true"></i>
+                                  <p>Subir arquivo</p>
                               </label>
                               {% render_field form.art_file class+="form-control-none" %}
+                              <div class="input-group">
+                                <span class="input-group-addon">
+                                <label for="{{ form.hire_art.auto_id }}">Contratar a arte</label>
+                                </span>
+                                <span class="input-group-addon">
+                                  {% render_field form.hire_art class+="form-control" %}
+                                </span>
+                              </div>
                             {% else %}
-                              <label for="{{ form.art_file.auto_id }}">
+                              <label for="{{ form.art_file.auto_id }}" class="mouse-pointer">
                                   <i class="fa fa-file fa-3x" aria-hidden="true"></i>
-                              </label>
                               {% render_field form.art_file class+="form-control-none" %}
                               <p><strong>{{line.filename}}</strong></p>
+                              </label>
                             {% endif %}
-                            <div class="input-group">
-                              <span class="input-group-addon">
-                              <label for="{{ form.hire_art.auto_id }}">Contratar a arte</label>
-                              </span>
-                              <span class="input-group-addon">
-                                {% render_field form.hire_art class+="form-control" %}
-                              </span>
-                            </div>
+
                           </center>
                       </div>
                       </td>
@@ -117,7 +119,7 @@
     									</p>
     								</td>
     								<td>
-      								<a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline"><i class="fa fa-trash-o"></i></a>
+      								<a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline"><i class="fa fa-trash-o fa-2x"></i></a>
       								<div style="display:none">
       										{{ form.move_to_basket }}
       										{{ form.DELETE }}
@@ -134,7 +136,7 @@
     							{% endfor %}
     						</tbody>
     					</table>
-              <button class="btn btn-default pull-right" type="submit" name="upload_file" data-loading-text="{% trans 'Enviando...' %}">{% trans "Enviar" %}</button>
+              <button class="btn btn-success pull-right" type="submit" name="upload_file" data-loading-text="{% trans 'Enviando...' %}">{% trans "Enviar arquivos de arte" %}</button>
 
             </form>
     			</div>

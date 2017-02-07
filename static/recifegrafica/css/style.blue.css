@@ -23,6 +23,16 @@ ul {
   list-style-type: none;
 }
 
+.mouse-pointer {
+  cursor:pointer;
+}
+
+.mouse-pointer:hover {
+  color:#4993e4;
+}
+
+
+
 #top {
   background: #0457ac;
   padding: 10px 0;
@@ -747,6 +757,9 @@ ul {
 #content #customer-order .table tbody tr td input {
   width: 60px;
   text-align: left;
+}
+#content #basket .table tbody tr td input {
+  font-weight: bold;
 }
 #content #checkout .table tbody tr td img,
 #content #basket .table tbody tr td img,
@@ -1833,6 +1846,11 @@ address {
   font-size: 0.7em;
 }
 
+.input-group-addon > label {
+  font-weight: 800;
+}
+
+
 .box h1 {
   margin-bottom: 0px;
   font-weight: 300;
@@ -1876,6 +1894,9 @@ address {
 td .price, .basket-totals {
   font-size: 1.5em;
   color: #000;
+}
+.basket-totals th {
+  text-align: center;
 }
 
 .white {
