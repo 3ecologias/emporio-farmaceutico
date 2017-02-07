@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from oscar.apps.checkout.forms import *
 from oscar.apps.payment.forms import BankcardForm
 from decimal import Decimal
+from django.forms import TextInput
 
 from cielo import PaymentAttempt
 
@@ -29,9 +30,12 @@ class CieloForm(BankcardForm):
             'installments',
         )
 
-    name = forms.CharField(max_length=128, label=_("Nome no Cartao"))
-    card_type = forms.ChoiceField(choices=CARD_TYPE_CHOICES,label=_("Tipo do cartao"))
-    installments = forms.ChoiceField(choices=(), label=_("Numero de parcelas"))
+    name = forms.CharField(max_length=128, label=_("Nome no Cartao"),
+            widget=forms.TextInput(attrs={'required':''}))
+    card_type = forms.ChoiceField(choices=CARD_TYPE_CHOICES,label=_("Tipo do cartao"),
+            widget=forms.Select(attrs={'required':''}))
+    installments = forms.ChoiceField(choices=(), label=_("Numero de parcelas"),
+            widget=forms.Select(attrs={'required':''}))
 
     number_of_installments = 12
 

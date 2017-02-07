@@ -42,10 +42,11 @@ class BasketView(CoreBasketView):
         if 'upload_file' in self.request.POST:
             files = self.request.FILES
             for form in formset:
-                line = form.instance
-                self.request.line = get_model('basket', 'Line').objects.get(basket=self.request.basket, product=line.product.pk)
-                self.request.line.art_file = form.instance.art_file
-                self.request.line.save()
+                if form.is_valid():
+                    line = form.instance
+                    self.request.line = get_model('basket', 'Line').objects.get(basket=self.request.basket, product=line.product.pk)
+                    self.request.line.art_file = form.instance.art_file
+                    self.request.line.save()
 
         return super(BasketView, self).formset_valid(formset)
 

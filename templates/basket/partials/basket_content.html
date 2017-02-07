@@ -104,10 +104,11 @@
     								</td>
                     <td>
                       {% render_field form.hire_art class+="form-control" %}
+
                       {% render_field form.art_file class+="form-control" %}
-                      <label for="{{ form.art_file.name }}">Choose a file</label>
                     </td>
                     <td>
+                      <p>Escolha uma opção relativa a configuração da sua arte, e envie</p>
                       <button class="btn btn-default" type="submit" name="upload_file" data-loading-text="{% trans 'Enviando...' %}">{% trans "Enviar" %}</button>
                     </td>
     							</tr>

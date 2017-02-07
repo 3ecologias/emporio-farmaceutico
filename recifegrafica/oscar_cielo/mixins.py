@@ -3,7 +3,7 @@ from decimal import Decimal
 
 from oscar.apps.payment import exceptions
 from oscar.core import prices
-
+from django.http import HttpResponseRedirect
 
 from cielo import (
     PaymentAttempt,
@@ -42,7 +42,7 @@ class CieloPaymentDetailsMixin(object):
             transaction = PaymentAttempt.INSTALLMENT_STORE
 
         data = {
-            'sandbox': getattr(settings, 'OSCAR_CIELO_SANDBOX', False),
+            'sandbox': getattr(settings, 'OSCAR_CIELO_SANDBOX', ''),
             'card_type': form_data.get('card_type'),
             'card_number': form_data.get('number'),
             'cvc2': form_data.get('ccv'),
@@ -181,11 +181,11 @@ class CieloPaymentDetailsMixin(object):
             """
             self.preview = self.get_cielo_form().is_valid()
 
+
     def capture_cielo_payment(self, order_number, total_incl_tax):
         form = self.get_cielo_form()
 
         if not form.is_valid():
-            print (form.errors)
             """ Something wrong with the submitted values
             Maybe some value was changed before submiting
             """
@@ -205,7 +205,6 @@ class CieloPaymentDetailsMixin(object):
             order_number, total_incl_tax, form.cleaned_data)
 
         attempt['total'] = attempt['total'].incl_tax
-        print(attempt['total'])
         attempt_cielo = PaymentAttempt(**attempt)
 
         try:
