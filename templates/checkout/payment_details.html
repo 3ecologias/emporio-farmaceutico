@@ -1,6 +1,7 @@
 {% extends "oscar/checkout/payment_details.html" %}
 {% load currency_filters %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block title %}
 {% trans "Payment details" %} | {{ block.super }}
@@ -26,3 +27,9 @@
 	{% endblock payment_details_content %}
 
 {% endblock payment_details %}
+
+{% block extrascripts %}
+    {{ block.super }}
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.9/jquery.mask.min.js"></script>
+		<script type="text/javascript" src="{% static 'oscar/custom/jquery_mask.js' %}"></script>
+{% endblock extrascripts %}
