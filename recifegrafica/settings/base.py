@@ -196,8 +196,12 @@ OSCAR_SHOP_NAME = "Recife Grafica"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# AUTH_USER_MODEL = "users.User"
+
 INSTALLED_APPS += [
     'recifegrafica',
     'recifegrafica.oscar_cielo',
-    'recifegrafica.arts_and_orders',
-] + get_core_apps(['recifegrafica.shipping', 'recifegrafica.checkout', 'recifegrafica.basket', 'recifegrafica.order'])
+    # 'recifegrafica.arts_and_orders',
+    'recifegrafica.users',
+] + get_core_apps(['recifegrafica.shipping', 'recifegrafica.checkout', 'recifegrafica.basket', 'recifegrafica.order'
+                    , 'recifegrafica.customer'])

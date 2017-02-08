@@ -3,3 +3,4 @@ django-oscar==1.1.1
 # used to populate countries
 pycountry==1.10
 python-cielo
+djang-localflavor
