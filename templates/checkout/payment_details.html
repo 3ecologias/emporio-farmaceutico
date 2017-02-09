@@ -19,11 +19,12 @@
 {% block payment_details %}
 
 	{% block payment_details_content %}
-        <form method=POST action="{{ request.path }}">
+        <form method=POST id="payment_form" action="{{ request.path }}">
             {% csrf_token %}
             {{ cielo_form }}
             <button class="btn btn-primary btn-large">{% trans "Continue" %}</button>
         </form>
+
 	{% endblock payment_details_content %}
 
 {% endblock payment_details %}
