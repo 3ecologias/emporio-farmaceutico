@@ -1,0 +1,4 @@
+{% load i18n %}{% block header %}{% endblock %}{% block body %}{% endblock %}{% block footer %}
+
+{% trans "Obrigada por estar com a gente" %}
+{% blocktrans with name=site.name %}Equipe Gráfica Recife{% endblocktrans %}{% endblock %}

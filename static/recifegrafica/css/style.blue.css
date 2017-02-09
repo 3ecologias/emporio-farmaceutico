@@ -1006,6 +1006,9 @@ add-to-basket .btn, .btn-wishlist {
 #copyright p {
   margin: 0;
 }
+.security-img img {
+  width: 100%;
+}
 @media (max-width: 991px) {
   #copyright p {
     float: none !important;
@@ -1441,6 +1444,7 @@ hr {
   margin-bottom: 20px;
   background-color: #ffffff;
   border-radius: 0;
+  font-size: 0.8em;
 }
 .breadcrumb > li + li:before {
   content: ">\00a0";
@@ -1503,6 +1507,9 @@ fieldset[disabled] .btn-primary.active {
   color: #4993e4;
   background-color: #ffffff;
 }
+#place-order .btn-primary {
+  font-size: 2em;
+}
 .btn-lg {
   padding: 10px 16px;
   font-size: 18px;
@@ -1524,6 +1531,7 @@ fieldset[disabled] .btn-primary.active {
 /* dropdowns */
 .dropdown-menu > li > a {
   padding: 5px 20px;
+  background: #fff;
 }
 /* forms.less */
 label {
@@ -1814,10 +1822,8 @@ address {
     text-align: center;
   }
 }
-
-
-#copyright img {
-  width: 7em;
+.copyright-brand {
+  width: 9em;
 }
 
 .tutorial {
@@ -1832,6 +1838,39 @@ address {
   margin-top: 2em;
   text-transform: uppercase;
   padding-top: 1em;
+  color: #fff;
+  background-color: #4993e4;
+  border: 1px solid #4993e4;
+}
+.review-title {
+  font-size: 1.2em;
+}
+
+.review-color .price {
+  color: #4993e4;
+}
+
+.review-cancel {
+  color: #fff!important;
+}
+
+.review_add small {
+  font-size: 70%;
+}
+legend {
+  color: #fff!important;
+  border-bottom: 0px!important;
+}
+.control-label.required:after {
+    color: #00ffec;
+    content: "*";
+    display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .review_add, .review_all, .review_read, .side_categories {
+    display: none;
+  }
 }
 
 .side_categories > .nav > li > a {
@@ -1885,8 +1924,11 @@ address {
 
 .sub-header h2, .sub-header h3, .sub-header h4 {
   text-transform: uppercase;
+  font-weight: bold!important;
 }
-
+.sub-header {
+  border-bottom: 0px;
+}
 .product-description-content p {
   font-size: 1.5em;
 }
@@ -1972,4 +2014,18 @@ td .price, .basket-totals {
     padding: 0;
     background-color: transparent;
     border-top: 0;
+}
+
+.basket-items .product_checkout {
+  font-size: 1.1em;
+}
+
+.basket-items .quantity_pos {
+  margin-top: 10px;
+}
+
+.order-button {
+  font-size: 1.6em;
+  background: #5cb85c;
+  border-color: #5cb85c;
 }

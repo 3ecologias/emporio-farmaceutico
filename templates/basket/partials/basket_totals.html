@@ -72,7 +72,7 @@
                         {# No discounts to basket #}
                         <tr>
                             <th >{% trans "SubTotal do Pedido" %}</th>
-                            <th >
+                            <th class="align-center">
                                 {% if not show_tax_separately and basket.is_tax_known %}
                                     {{ basket.total_incl_tax|currency:basket.currency }}
                                 {% else %}
@@ -103,7 +103,7 @@
                         <th>
                             {{ shipping_method.name }}
                         </th>
-                        <th>
+                        <th class="align-center">
                             {% if not show_tax_separately and shipping_charge.is_tax_known %}
                                 {{ shipping_charge.incl_tax|currency:basket.currency }}
                             {% else %}
@@ -204,7 +204,7 @@
                 <tr>
                     <th ><h3>{% trans "Total" %}</h3></th>
                     <td >
-                        <h3 class="white">
+                        <h3 class="white align-center">
                             {% if order_total.is_tax_known %}
                                 {{ order_total.incl_tax|currency:basket.currency }}
                             {% else %}

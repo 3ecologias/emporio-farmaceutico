@@ -192,7 +192,7 @@ OSCAR_ORDER_STATUS_PIPELINE = {
 
 OSCAR_DEFAULT_CURRENCY = "BRL"
 
-OSCAR_SHOP_NAME = "Recife Grafica"
+OSCAR_SHOP_NAME = "Grafica Recife"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

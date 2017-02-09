@@ -13,6 +13,9 @@
         {% include "partials/form_fields.html" with form=basket_form %}
         <button type="submit" class="btn btn-primary btn-add-to-basket" value="{% trans "Add to basket" %}" data-loading-text="{% trans 'Adicionando...' %}"><i class="fa fa-shopping-cart"></i>{% trans "Comprar" %}</button>
     </form>
+    <!-- {% iffeature "wishlists" %}
+        {% include "catalogue/partials/add_to_wishlist.html" %}
+    {% endiffeature %} -->
   </center>
 {% else %}
     {% if has_active_alert %}
@@ -25,4 +28,7 @@
             <button type="submit" class="btn btn-lg btn-info btn-add-to-basket" data-loading-text="{% trans 'Submetendo...' %}">{% trans "Notify me" %}</button>
         </form>
     {% endif %}
+    <!-- {% iffeature "wishlists" %}
+        {% include "catalogue/partials/add_to_wishlist.html" %}
+    {% endiffeature %} -->
 {% endif %}

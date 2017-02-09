@@ -1,0 +1,6 @@
+{% load i18n %}{% block header %}{% endblock %}
+{% block body %}{% endblock %}
+
+{% block footer %}
+<p>{% trans "Obrigada por estar com a gente!" %}</p>
+<p>{% blocktrans with name=site.name %}Equipe Gráfica Recife{% endblocktrans %}</p>{% endblock %}
