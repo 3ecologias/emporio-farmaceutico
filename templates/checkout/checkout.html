@@ -21,9 +21,66 @@
         </div>
     {% endif %}
 
-    <div class="row shipping-payment">
-        {% block shipping_address %}
-            <div class="col-sm-6">
+
+
+    {% block order_contents %}
+        <div class="sub-header">
+            {% block order_contents_actions %}
+                <a href="{% url 'basket:summary' %}" class="pull-right">
+                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                </a>
+            {% endblock %}
+
+            <h2>{% trans "Order contents" %}</h2>
+        </div>
+        <div class="basket-title">
+            <div class="row">
+                <p class="col-sm-9 h4">{% trans "Item" %}</p>
+                <p class="col-sm-1 h4 align-center">{% trans "Quantity" %}</p>
+                <p class="col-sm-2 h4 align-right">{% trans "Total" %}</p>
+            </div>
+        </div>
+        {% for line in basket.all_lines %}
+            {% purchase_info_for_line request line as session %}
+            <div class="basket-items">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="image_container">
+                            {% with image=line.product.primary_image %}
+                                {% thumbnail image.original "100x100" upscale=False as thumb %}
+                                <a href="{{ form.instance.product.get_absolute_url }}"><img class="thumbnail" src="{{ thumb.url }}" alt="{{ product.get_title }}"></a>
+                                {% endthumbnail %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h3 class="product_checkout"><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h3>
+                        <span class="availability {{ session.availability.code }}">{{ session.availability.message }}</span>
+                    </div>
+                    <div class="col-sm-1 align-center quantity_pos">
+                        {{ line.quantity }}
+                    </div>
+                    <div class="col-sm-2 align-right">
+                        <p class="price_color">
+                            {% if not show_tax_separately and line.is_tax_known %}
+                                {{ line.line_price_incl_tax|currency:basket.currency }}
+                            {% else %}
+                                {{ line.line_price_excl_tax|currency:basket.currency }}
+                            {% endif %}
+                        </p>
+                    </div>
+                    {% if line.art_file %}
+                      <div class="col-sm-2 align-right">
+                          <a href="{{line.art_file.url}}"><i class="fa fa-file" aria-hidden="true"></i></a>
+                      </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+        <ul class="row">
+            <!-- <div class="col-sm-6">&nbsp;</div> -->
+            <li class="col-sm-4">
                 <div class="sub-header">
                     <h2>{% trans "Shipping" %}</h2>
                 </div>
@@ -74,12 +131,9 @@
 
                     </div>
                 {% endif %}
-            </div>
-        {% endblock shipping_address %}
-
-        {# You will almost certainly want to override this block to provide a payment summary #}
-        {% block payment_method %}
-            <div class="col-sm-6">
+            </li>
+            {% block payment_method %}
+            <li class="col-sm-4">
                 <div class="sub-header">
                     <h2>{% trans "Payment" %}</h2>
                 </div>
@@ -90,73 +144,27 @@
                     <h3>{% trans "Payment" %}</h3>
                     <p>{% trans "Payment details to go here" %}</p>
                 </div>
-            </div>
-        {% endblock payment_method %}
-    </div>
+            </li>
 
-    {% block order_contents %}
-        <div class="sub-header">
-            {% block order_contents_actions %}
-                <a href="{% url 'basket:summary' %}" class="pull-right">
-                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                </a>
-            {% endblock %}
 
-            <h2>{% trans "Order contents" %}</h2>
-        </div>
-        <div class="basket-title">
-            <div class="row">
-                <p class="col-sm-9 h4">{% trans "Item" %}</p>
-                <p class="col-sm-1 h4 align-center">{% trans "Quantity" %}</p>
-                <p class="col-sm-2 h4 align-right">{% trans "Total" %}</p>
-            </div>
-        </div>
-        {% for line in basket.all_lines %}
-            {% purchase_info_for_line request line as session %}
-            <div class="basket-items">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="image_container">
-                            {% with image=line.product.primary_image %}
-                                {% thumbnail image.original "100x100" upscale=False as thumb %}
-                                <a href="{{ form.instance.product.get_absolute_url }}"><img class="thumbnail" src="{{ thumb.url }}" alt="{{ product.get_title }}"></a>
-                                {% endthumbnail %}
-                            {% endwith %}
-                        </div>
-                    </div>
-                    <div class="col-sm-7">
-                        <span class="availability {{ session.availability.code }}">{{ session.availability.message }}</span>
-                    </div>
-                        {{ line.quantity }}
-                    </div>
-                    <div class="col-sm-2 align-right">
-                        <p class="price_color">
-                            {% if not show_tax_separately and line.is_tax_known %}
-                                {{ line.line_price_incl_tax|currency:basket.currency }}
-                            {% else %}
-                                {{ line.line_price_excl_tax|currency:basket.currency }}
-                            {% endif %}
-                        </p>
-                    </div>
-                    {% if line.art_file %}
-                      <div class="col-sm-2 align-right">
-                          <a href="{{line.art_file.url}}"><i class="fa fa-file" aria-hidden="true"></i></a>
-                      </div>
-                    {% endif %}
-                </div>
-            </div>
-        {% endfor %}
-
-        <div class="row">
+            {% endblock payment_method %}
+            <li class="col-sm-4">
                 <div class="sub-header">
                     <h2>{% trans 'Totals' %}</h2>
                 </div>
                 {% include 'basket/partials/basket_totals.html' %}
-            </div>
-        </div>
+            </li>
+        </ul>
 
     {% endblock order_contents %}
+    <div class="row shipping-payment">
+        {% block shipping_address %}
 
+        {% endblock shipping_address %}
+
+        {# You will almost certainly want to override this block to provide a payment summary #}
+
+    </div>
     {% block shipping_method %}
     {% endblock shipping_method %}
 

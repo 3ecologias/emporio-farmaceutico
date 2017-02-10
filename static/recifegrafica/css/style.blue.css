@@ -1834,7 +1834,7 @@ address {
   margin: 0px 0 20px;
 }
 
-.review_add, .review_all, .review_read, .side_categories {
+.review_add, .review_all, .review_read {
   margin-top: 2em;
   text-transform: uppercase;
   padding-top: 1em;
@@ -1842,6 +1842,7 @@ address {
   background-color: #4993e4;
   border: 1px solid #4993e4;
 }
+
 .review-title {
   font-size: 1.2em;
 }
@@ -1871,6 +1872,12 @@ legend {
   .review_add, .review_all, .review_read, .side_categories {
     display: none;
   }
+}
+.side_categories {
+  margin-top: 2em;
+  text-transform: uppercase;
+  padding-top: 1em;
+  color: #fff;
 }
 
 .side_categories > .nav > li > a {
