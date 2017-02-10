@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for oscardemo project.
 
@@ -26,6 +28,8 @@ SECRET_KEY = '0u!2w1xt06#j39d^7o(@!e&ro2mi^g=3^h-m#b&ld)t03m)15d'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+DEFAULT_CHARSET = 'utf-8'
 
 
 # Application definition
@@ -182,12 +186,14 @@ HAYSTACK_CONNECTIONS = {
 # django oscar recommends using ATOMIC_REQUESTS
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
-OSCAR_INITIAL_ORDER_STATUS = 'Pending'
-OSCAR_INITIAL_LINE_STATUS = 'Pending'
+OSCAR_INITIAL_ORDER_STATUS = 'Processado'
+OSCAR_INITIAL_LINE_STATUS = 'Processado'
 OSCAR_ORDER_STATUS_PIPELINE = {
-    'Pending': ('Being processed', 'Cancelled',),
-    'Being processed': ('Processed', 'Cancelled',),
-    'Cancelled': (),
+    'Processado': ('Pre-impressao', 'Cancelado',),
+    'Pre-impressao': ('Produzindo', 'Cancelado',),
+    'Produzindo': ('Expedicao', 'Cancelado',),
+    'Expedicao': ('Disponivel', 'Cancelado',),
+    'Cancelado': (),
 }
 
 OSCAR_DEFAULT_CURRENCY = "BRL"
@@ -202,6 +208,6 @@ INSTALLED_APPS += [
     'recifegrafica',
     'recifegrafica.oscar_cielo',
     # 'recifegrafica.arts_and_orders',
-    'recifegrafica.users',
+    'recifegrafica.custom_user',
 ] + get_core_apps(['recifegrafica.shipping', 'recifegrafica.checkout', 'recifegrafica.basket', 'recifegrafica.order'
                     , 'recifegrafica.customer'])

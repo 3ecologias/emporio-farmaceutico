@@ -1,0 +1,7 @@
+{% extends 'oscar/customer/profile/profile_form.html' %}
+{% load staticfiles %}
+{% block extrascripts %}
+    {{ block.super }}
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.9/jquery.mask.min.js"></script>
+		<script type="text/javascript" src="{% static 'oscar/custom/update_user.js' %}"></script>
+{% endblock extrascripts %}

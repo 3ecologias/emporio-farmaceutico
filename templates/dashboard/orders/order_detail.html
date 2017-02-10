@@ -43,10 +43,20 @@
             <tr>
                 <th>{% trans "Name" %}</th>
                 <th>{% trans "Email address" %}</th>
+                {% if order.user.cpf %}
+                  <th>{% trans "CPF" %}</th>
+                {% elif order.user.cnpj %}
+                  <th>{% trans "CNPJ" %}</th>
+                {% endif %}
             </tr>
             <tr>
                 <td>{{ order.user.get_full_name|default:"-" }}</td>
                 <td>{{ order.user.email|default:"-" }}</td>
+                {% if order.user.cpf %}
+                  <td>{{ order.user.cpf }}</td>
+                {% elif order.user.cnpj %}
+                  <td>{{ order.user.cnpj }}</td>
+                {% endif %}
             </tr>
         {% else %}
             <tr><td>{% trans "Customer has deleted their account." %}</td></tr>
