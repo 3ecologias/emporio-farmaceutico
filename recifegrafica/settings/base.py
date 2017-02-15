@@ -210,4 +210,4 @@ INSTALLED_APPS += [
     # 'recifegrafica.arts_and_orders',
     'recifegrafica.custom_user',
 ] + get_core_apps(['recifegrafica.shipping', 'recifegrafica.checkout', 'recifegrafica.basket', 'recifegrafica.order'
-                    , 'recifegrafica.customer'])
+                    , 'recifegrafica.customer', 'recifegrafica.catalogue'])
