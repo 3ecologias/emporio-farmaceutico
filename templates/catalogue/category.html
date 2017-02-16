@@ -29,14 +29,18 @@
 {% endblock breadcrumbs %}
 
 {% block content %}
-      <div>
-        <h3>Mais vendidos de {{category.name}}</h3>
-          <ol class=" row ">
-            {% for product in best_products|slice:":4" %}
-                <li class="col-sm-4 col-md-3 col-sx-6 col-lg-3">{% render_product product %}</li>
-            {% endfor %}
-          </ol>
-      </div>
+  {% if products|length > 4 %}
+    {% if best_products  %}
+        <div>
+          <h3>Mais vendidos de {{category.name}}</h3>
+            <ol class=" row ">
+              {% for product in best_products|slice:":4" %}
+                  <li class="col-sm-4 col-md-3 col-sx-6 col-lg-3">{% render_product product %}</li>
+              {% endfor %}
+            </ol>
+        </div>
+    {% endif %}
+  {% endif %}
         <h3>Produtos da categoria</h3>
     {% if category.description %}
         <div class="row">
