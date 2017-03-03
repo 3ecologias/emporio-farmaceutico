@@ -28,7 +28,7 @@
             <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
         </li>
         {% endfor %}
-        <li class="active">{{ product.title }}</li>
+        <!-- <li class="active">{{ product.title }}</li> -->
 
         {% get_back_button as backbutton %}
         {% if backbutton %}
@@ -101,7 +101,7 @@
             <th>{% trans "UPC" %}</th><td>{{ product.upc }}</td>
         </tr>
         {% endif %}
-    
+
 
         {% purchase_info_for_product request product as session %}
         {% if session.price.exists %}

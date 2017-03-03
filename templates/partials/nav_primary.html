@@ -36,7 +36,7 @@
         <!--/.navbar-header -->
         <div class="navbar-collapse collapse" id="navigation">
             <ul class="nav navbar-nav navbar-left">
-              {% category_tree depth=4 as tree_categories %}
+              {% category_tree depth=2 as tree_categories %}
               {% if tree_categories %}
                   {% for category, info in tree_categories %}
                     {% if info.has_children %}

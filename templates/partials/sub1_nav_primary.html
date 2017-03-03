@@ -2,7 +2,7 @@
 {% load category_tags %}
 {% load i18n %}
 
-{% category_tree depth=4 as tree_categories %}
+{% category_tree depth=2 as tree_categories %}
 {% if tree_categories %}
   {% for category, info in tree_categories %}
     {% if category.get_ancestors %}
@@ -10,7 +10,7 @@
         {% if category.get_first_sibling == ancestor %}
           <ul class="col-sm-3">
             <a href="{{ category.get_absolute_url }}"><h5>{{category.name}}</h5></a>
-              {% include 'partials/sub2_nav_primary.html' with father=category.get_first_child %}
+              <!-- {% include 'partials/sub2_nav_primary.html' with father=category.get_first_child %} -->
           </ul>
         {% endif %}
       {% endif %}
