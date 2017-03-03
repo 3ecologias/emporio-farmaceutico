@@ -1444,7 +1444,8 @@ hr {
   margin-bottom: 20px;
   background-color: #ffffff;
   border-radius: 0;
-  font-size: 0.8em;
+  font-size: 1.3em;
+  text-transform: uppercase;
 }
 .breadcrumb > li + li:before {
   content: ">\00a0";
@@ -1667,6 +1668,7 @@ h2,
 .h2,
 h3,
 .h3 {
+  font-family: 'Roboto Slab', serif;
   margin-top: 20px;
   margin-bottom: 20px;
 }

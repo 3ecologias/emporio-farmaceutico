@@ -32,23 +32,26 @@
   {% if products|length > 4 %}
     {% if best_products  %}
         <div>
-          <h3>Mais vendidos de {{category.name}}</h3>
-            <ol class=" row ">
+          <!-- <h3>Mais vendidos</h3> -->
+            <ol class="row ">
               {% for product in best_products|slice:":4" %}
-                  <li class="col-sm-4 col-md-3 col-sx-6 col-lg-3">{% render_product product %}</li>
+                  <li class="col-sm-6 col-md-6 col-sx-6 col-lg-6">{% render_product product %}</li>
               {% endfor %}
             </ol>
         </div>
+      {% else %}
+      <div class="row products">
+          <!-- <div class="col-md-3 col-sm-4"> -->
+          <div>
+              <ol class=" row ">
+                  {% for product in products|slice:":4" %}
+                      <li class="col-sm-6 col-md-6 col-sx-6 col-lg-6">{% render_product product %}</li>
+                  {% endfor %}
+              </ol>
+              {% include "partials/pagination.html" %}
+          </div>
+      </div>
     {% endif %}
   {% endif %}
-        <h3>Produtos da categoria</h3>
-    {% if category.description %}
-        <div class="row">
-            <div class="col-sm-9"><p>{{ category.description|safe }}</p></div>
-            {% if category.image %}
-                <div class="col-sm-3"><img src="{{ category.image.url }}" alt="{{ category.name }}" class="img-responsive" /></div>
-            {% endif %}
-        </div>
-    {% endif %}
     {{ block.super }}
 {% endblock %}

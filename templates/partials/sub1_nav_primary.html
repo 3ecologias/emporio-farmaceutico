@@ -8,10 +8,10 @@
     {% if category.get_ancestors %}
       {% if category.get_descendants %}
         {% if category.get_first_sibling == ancestor %}
-          <a href="{{ category.get_absolute_url }}"><h5>{{category.name}}</h5></a>
-          <!-- <ul>
-            {% include 'partials/sub2_nav_primary.html' with father=category.get_first_child %}
-          </ul> -->
+          <ul class="col-sm-3">
+            <a href="{{ category.get_absolute_url }}"><h5>{{category.name}}</h5></a>
+              {% include 'partials/sub2_nav_primary.html' with father=category.get_first_child %}
+          </ul>
         {% endif %}
       {% endif %}
     {% endif %}

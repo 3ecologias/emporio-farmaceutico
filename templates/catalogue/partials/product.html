@@ -35,20 +35,9 @@
             {% endwith %}
         {% endblock %}
 
-        {% block product_review %}
-            {% iffeature "reviews" %}
-                <p class="star-rating {{ product.rating|as_stars }}">
-                    <i class="icon-star"></i>
-                    <i class="icon-star"></i>
-                    <i class="icon-star"></i>
-                    <i class="icon-star"></i>
-                    <i class="icon-star"></i>
-                </p>
-            {% endiffeature %}
-        {% endblock %}
         <div class="text">
             {% block product_title %}
-                <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}</a></h3>
+                <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title }}</a></h3>
             {% endblock %}
 
             {% block product_price %}

@@ -56,50 +56,15 @@
     {% endif %}
 {% endblock %}
 
+
 {% block content %}
-
-    <!-- <form method="get" class="form-horizontal">
-        {# Render other search params in a hidden block #}
-        <div style="display:none">
-            {% for value in selected_facets %}
-                <input name="selected_facets" value="{{ value }}" />
-            {% endfor %}
-            {{ form.q }}
-        </div>
-
-        {% if paginator.count %}
-            {% if paginator.num_pages > 1 %}
-                {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
-                    <strong>{{ num_results }}</strong> resultado - mostrando <strong>{{ start }}</strong> a <strong>{{ end }}</strong>.
-                {% plural %}
-                    <strong>{{ num_results }}</strong> resultados - mostrando <strong>{{ start }}</strong> a <strong>{{ end }}</strong>.
-                {% endblocktrans %}
-            {% else %}
-                {% blocktrans count num_results=paginator.count %}
-                    <strong>{{ num_results }}</strong> resultado.
-                {% plural %}
-                    <strong>{{ num_results }}</strong> resultados.
-                {% endblocktrans %}
-            {% endif %}
-            {% if form %}
-                <div class="pull-right">
-                    {% include "partials/form_field.html" with field=form.sort_by %}
-                </div>
-            {% endif %}
-        {% else %}
-            <p>
-                {% trans "<strong>0</strong> results." %}
-            </p>
-        {% endif %}
-    </form> -->
-
     {% if products %}
         <div class="row products">
             <!-- <div class="col-md-3 col-sm-4"> -->
             <div>
                 <ol class=" row ">
-                    {% for product in products %}
-                        <li class="col-sm-4 col-md-3 col-sx-6 col-lg-3">{% render_product product %}</li>
+                    {% for product in products|slice:":4" %}
+                        <li class="col-sm-6 col-md-6 col-sx-6 col-lg-6">{% render_product product %}</li>
                     {% endfor %}
                 </ol>
                 {% include "partials/pagination.html" %}
