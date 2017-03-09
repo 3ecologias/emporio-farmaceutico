@@ -36,34 +36,21 @@
         <!--/.navbar-header -->
         <div class="navbar-collapse collapse" id="navigation">
             <ul class="nav navbar-nav navbar-left">
-              {% category_tree depth=2 as tree_categories %}
-              {% if tree_categories %}
-                  {% for category, info in tree_categories %}
-                    {% if info.has_children %}
-                      {% if not category.get_ancestors %}
-                          {% if category.get_descendants %}
-                          <li class="dropdown yamm-fw">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"  data-hover="dropdown" data-delay="200">
-                              {{ category.name }}
-                              <b class="caret"></b>
+                          <li>
+                            <a href="/catalogue/category/embalagens_1/" data-hover="dropdown">
+                              Embalagens
                             </a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li>
-                                <div class="yamm-content">
-                                  <div class="row">
-                                    <div class="col-sm-12">
-                                      {% include 'partials/sub1_nav_primary.html' with ancestor=category.get_first_child %}
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
                           </li>
-                          {% endif %}
-                        {% endif %}
-                     {% endif %}
-                 {% endfor %}
-             {% endif %}
+                          <li>
+                            <a href="/catalogue/category/empresas_75/" data-hover="dropdown">
+                              Empresas
+                            </a>
+                          </li>
+                          <li>
+                            <a href="catalogue/category/festas_654/" data-hover="dropdown">
+                              Festas
+                            </a>
+                          </li>
            </ul>
          </div>
          <div class="navbar-buttons">

@@ -10,9 +10,9 @@ from django.contrib import messages
 class HandDelivery(methods.FixedPrice):
 
     code = "hand-delivery"
-    name = _("Entrega Expressa")
+    name = _("Transportadora")
     charge_excl_tax = D('0.00')
-    charge_incl_tax = D('1.00')
+    charge_incl_tax = D('0.00')
 
 class Repository(CoreRepository):
 

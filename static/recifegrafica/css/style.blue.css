@@ -1102,7 +1102,7 @@ add-to-basket .btn, .btn-wishlist {
   border-color: #4993e4;
 }
 .nav-tabs {
-  border-bottom: 1px solid #dddddd;
+  /*border-bottom: 1px solid #dddddd;*/
 }
 .nav-tabs > li > a {
   line-height: 1.42857143;
@@ -1137,7 +1137,7 @@ add-to-basket .btn, .btn-wishlist {
 }
 @media (min-width: 768px) {
   .nav-tabs-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    /*border-bottom: 1px solid #dddddd;*/
     border-radius: 4px 4px 0 0;
   }
   .nav-tabs-justified > .active > a,
@@ -1444,7 +1444,7 @@ hr {
   margin-bottom: 20px;
   background-color: #ffffff;
   border-radius: 0;
-  font-size: 1.3em;
+  font-size: 1em;
   text-transform: uppercase;
 }
 .breadcrumb > li + li:before {
@@ -1879,24 +1879,32 @@ legend {
   }
 }
 .side_categories {
-  /*margin-top: 2em;*/
+  margin-top: 2em;
   text-transform: uppercase;
   /*padding-top: 1em;*/
   color: #fff;
-  background: none!important;
+  background: #4993e4!important;
   border:0!important;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .side_categories > .nav > li > a {
   font-weight: bold;
+  padding: 3px!important;
+  font-size: .7em;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 68, 204, 0.3);
+  margin-right: 2em;
 }
 
 .categories .nav>li {
-    display: inline-block!important;
-    font-size: 1.5em;
+    display: inherit!important;
+    font-size: 0.7em;
 }
 
+.nav-tabs {
+  border-bottom: 0px!important;
+}
 #all {
   margin-bottom: 3em;
 }
@@ -1954,7 +1962,7 @@ legend {
 }
 
 td .price, .basket-totals {
-  font-size: 1.5em;
+  font-size: 1em;
   color: #000;
 }
 .basket-totals th {
