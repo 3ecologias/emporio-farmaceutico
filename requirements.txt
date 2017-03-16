@@ -1,7 +1,8 @@
-django==1.9
 django-oscar
+django==1.9
 
 # used to populate countries
 pycountry==1.10
 python-cielo
 django-localflavor
+django_compressor
